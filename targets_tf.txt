@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# Add new target endpoints here for DMS.
+# This instructs where to put the data.
+# ------------------------------------------------------
+
+# Reference existing DMS replication instance
+data "aws_dms_replication_instance" "main" {
+  replication_instance_id = var.dms_replication_instance_id
+}
+
+# DMS S3 Target Endpoint
+resource "aws_dms_endpoint" "s3_target_endpoint" {
+  endpoint_id   = "s3-endpoint-target"
+  endpoint_type = "target"
+  engine_name   = "s3"
+
+  s3_settings {
+    service_access_role_arn           = data.aws_iam_role.dms_vpc_role.arn
+    bucket_name                       = var.raw_bucket_name
+    bucket_folder                     = ""
+    compression_type                  = "GZIP"
+    data_format                       = "parquet"
+    parquet_version                   = "parquet-2-0"
+    enable_statistics                 = true
+    timestamp_column_name             = "edl_load_date"
+    use_task_start_time_for_full_load_timestamp = true
+  }
+
+  tags = {
+    Name         = "S3-Target"
+    Environment  = var.environment
+    Pod          = var.pod
+    Businessunit = var.businessunit
+    Project      = "NUC-DataLake"
+    TargetSystem = "s3"
+    ManagedBy    = "terraform"
+  }
+}

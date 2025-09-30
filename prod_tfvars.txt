@@ -1,0 +1,16 @@
+# Production environment configuration - Global Terraform variables
+environment = "prod"
+aws_region  = "us-gov-west-1"
+
+# S3 Buckets
+raw_bucket_name = "entergy-govdatacore-raw-prod"
+
+# DMS Configuration
+glue_job_name             = "dms_data_quality_load"
+log_retention_days        = 90     # Longer retention for prod
+
+# IAM Roles (must be created outside Terraform)
+crawler_execution_role_arn = "arn:aws-us-gov:iam::331875705534:role/glue-execution-role"
+
+# DMS Configuration
+dms_replication_instance_id = "dms-replication-instance-prod"

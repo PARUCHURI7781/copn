@@ -1,0 +1,92 @@
+# Variables for DMS infrastructure module
+
+variable "environment" {
+  description = "Environment name (dev, test, prod)"
+  type        = string
+  validation {
+    condition     = contains(["dev", "test", "prod"], var.environment)
+    error_message = "Environment must be one of: dev, test, prod."
+  }
+}
+
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-gov-west-1"
+}
+
+variable "raw_bucket_name" {
+  description = "Name of the S3 bucket where DMS writes raw data"
+  type        = string
+}
+
+variable "glue_job_name" {
+  description = "Name of the Glue job to trigger for single table processing"
+  type        = string
+  default     = "dms_single_table_load"
+}
+
+variable "s3_prefix_filters" {
+  description = "List of S3 prefix filters for Lambda trigger (e.g., ['somano_raw.db/', 'maximo_raw.db/'])"
+  type        = list(string)
+  default     = []
+}
+
+
+
+variable "log_retention_days" {
+  description = "CloudWatch log retention in days"
+  type        = number
+  default     = 30
+}
+
+
+
+variable "crawler_execution_role_arn" {
+  description = "ARN of existing IAM role for Glue crawler execution (must be created outside Terraform)"
+  type        = string
+}
+
+variable "pod" {
+  description = "Pod identifier for tagging"
+  type        = string
+  default     = "datacore"
+}
+
+variable "businessunit" {
+  description = "Business unit for tagging"
+  type        = string
+  default     = "IT"
+}
+
+# DMS Infrastructure Variables
+variable "dms_vpc_role_name" {
+  description = "Name of the DMS VPC role for S3 and database access"
+  type        = string
+  default     = "dms-vpc-role"
+}
+
+variable "dms_replication_instance_id" {
+  description = "ID of the existing DMS replication instance"
+  type        = string
+  default     = "dms-replication-instance-dev"
+}
+
+variable "dms_secrets_manager_secret_name" {
+  description = "Name of the Secrets Manager secret for DMS source database credentials"
+  type        = string
+  default     = "entergy_shared_dms_ESOM_GGN"
+}
+
+variable "source_database_name" {
+  description = "Source Oracle database name"
+  type        = string
+  default     = "somggntr.world"
+}
+
+# Configuration S3 paths
+variable "config_bucket_name" {
+  description = "S3 bucket name for configuration files"
+  type        = string
+  default     = "entergy-govdatacore-dataeng-code-repo"
+}

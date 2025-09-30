@@ -1,0 +1,199 @@
+# DMS Endpoint Outputs
+output "esom_ggn_endpoint_arn" {
+  description = "ARN of the ESOM GGN DMS endpoint"
+  value       = aws_dms_endpoint.esom_ggn_oracle_source_endpoint.endpoint_arn
+}
+
+output "esom_ggn_endpoint_id" {
+  description = "ID of the ESOM GGN DMS endpoint"
+  value       = aws_dms_endpoint.esom_ggn_oracle_source_endpoint.endpoint_id
+}
+
+output "esom_ano_endpoint_arn" {
+  description = "ARN of the ESOM ANO DMS endpoint"
+  value       = aws_dms_endpoint.esom_ano_oracle_source_endpoint.endpoint_arn
+}
+
+output "esom_ano_endpoint_id" {
+  description = "ID of the ESOM ANO DMS endpoint"
+  value       = aws_dms_endpoint.esom_ano_oracle_source_endpoint.endpoint_id
+}
+
+output "esom_wf3_endpoint_arn" {
+  description = "ARN of the ESOM WF3 DMS endpoint"
+  value       = aws_dms_endpoint.esom_wf3_oracle_source_endpoint.endpoint_arn
+}
+
+output "esom_wf3_endpoint_id" {
+  description = "ID of the ESOM WF3 DMS endpoint"
+  value       = aws_dms_endpoint.esom_wf3_oracle_source_endpoint.endpoint_id
+}
+
+output "esom_rbs_endpoint_arn" {
+  description = "ARN of the ESOM RBS DMS endpoint"
+  value       = aws_dms_endpoint.esom_rbs_oracle_source_endpoint.endpoint_arn
+}
+
+output "esom_rbs_endpoint_id" {
+  description = "ID of the ESOM RBS DMS endpoint"
+  value       = aws_dms_endpoint.esom_rbs_oracle_source_endpoint.endpoint_id
+}
+
+output "s3_target_endpoint_arn" {
+  description = "ARN of the S3 target endpoint"
+  value       = aws_dms_endpoint.s3_target_endpoint.endpoint_arn
+}
+
+output "s3_target_endpoint_id" {
+  description = "ID of the S3 target endpoint"
+  value       = aws_dms_endpoint.s3_target_endpoint.endpoint_id
+}
+
+# DMS Replication Task Outputs
+output "dms_task_arn" {
+  description = "ARN of the DMS replication task"
+  value       = aws_dms_replication_task.migration.replication_task_arn
+}
+
+output "dms_task_id" {
+  description = "ID of the DMS replication task"
+  value       = aws_dms_replication_task.migration.replication_task_id
+}
+
+output "dms_blob_task_arn" {
+  description = "ARN of the DMS blob replication task"
+  value       = aws_dms_replication_task.blob_migration.replication_task_arn
+}
+
+output "dms_blob_task_id" {
+  description = "ID of the DMS blob replication task"
+  value       = aws_dms_replication_task.blob_migration.replication_task_id
+}
+
+# CloudWatch Log Group Outputs
+output "dms_log_group" {
+  description = "CloudWatch log group for DMS task"
+  value       = data.aws_cloudwatch_log_group.dms_task.name
+}
+
+output "dms_blob_log_group" {
+  description = "CloudWatch log group for DMS blob task"
+  value       = data.aws_cloudwatch_log_group.dms_blob_task.name
+}
+
+# ANO DMS Task Outputs
+output "dms_ano_task_arn" {
+  description = "ARN of the DMS ANO non-blob replication task"
+  value       = aws_dms_replication_task.ano_migration.replication_task_arn
+}
+
+output "dms_ano_task_id" {
+  description = "ID of the DMS ANO non-blob replication task"
+  value       = aws_dms_replication_task.ano_migration.replication_task_id
+}
+
+output "dms_ano_blob_task_arn" {
+  description = "ARN of the DMS ANO blob replication task"
+  value       = aws_dms_replication_task.ano_blob_migration.replication_task_arn
+}
+
+output "dms_ano_blob_task_id" {
+  description = "ID of the DMS ANO blob replication task"
+  value       = aws_dms_replication_task.ano_blob_migration.replication_task_id
+}
+
+output "dms_ano_revision_task_arn" {
+  description = "ARN of the DMS ANO revision documents replication task"
+  value       = aws_dms_replication_task.ano_revision_migration.replication_task_arn
+}
+
+output "dms_ano_revision_task_id" {
+  description = "ID of the DMS ANO revision documents replication task"
+  value       = aws_dms_replication_task.ano_revision_migration.replication_task_id
+}
+
+# New Raw CDC and Full Load Task Outputs
+
+# SOMANO Raw Tasks
+output "dms_somano_raw_cdc_task_arn" {
+  description = "ARN of the DMS SOMANO raw CDC replication task"
+  value       = aws_dms_replication_task.somano_raw_cdc_migration.replication_task_arn
+}
+
+output "dms_somano_raw_cdc_task_id" {
+  description = "ID of the DMS SOMANO raw CDC replication task"
+  value       = aws_dms_replication_task.somano_raw_cdc_migration.replication_task_id
+}
+
+output "dms_somano_raw_full_task_arn" {
+  description = "ARN of the DMS SOMANO raw full load replication task"
+  value       = aws_dms_replication_task.somano_raw_full_migration.replication_task_arn
+}
+
+output "dms_somano_raw_full_task_id" {
+  description = "ID of the DMS SOMANO raw full load replication task"
+  value       = aws_dms_replication_task.somano_raw_full_migration.replication_task_id
+}
+
+# SOMGGN Raw Tasks
+output "dms_somggn_raw_cdc_task_arn" {
+  description = "ARN of the DMS SOMGGN raw CDC replication task"
+  value       = aws_dms_replication_task.somggn_raw_cdc_migration.replication_task_arn
+}
+
+output "dms_somggn_raw_cdc_task_id" {
+  description = "ID of the DMS SOMGGN raw CDC replication task"
+  value       = aws_dms_replication_task.somggn_raw_cdc_migration.replication_task_id
+}
+
+output "dms_somggn_raw_full_task_arn" {
+  description = "ARN of the DMS SOMGGN raw full load replication task"
+  value       = aws_dms_replication_task.somggn_raw_full_migration.replication_task_arn
+}
+
+output "dms_somggn_raw_full_task_id" {
+  description = "ID of the DMS SOMGGN raw full load replication task"
+  value       = aws_dms_replication_task.somggn_raw_full_migration.replication_task_id
+}
+
+# SOMRBS Raw Tasks
+output "dms_somrbs_raw_cdc_task_arn" {
+  description = "ARN of the DMS SOMRBS raw CDC replication task"
+  value       = aws_dms_replication_task.somrbs_raw_cdc_migration.replication_task_arn
+}
+
+output "dms_somrbs_raw_cdc_task_id" {
+  description = "ID of the DMS SOMRBS raw CDC replication task"
+  value       = aws_dms_replication_task.somrbs_raw_cdc_migration.replication_task_id
+}
+
+output "dms_somrbs_raw_full_task_arn" {
+  description = "ARN of the DMS SOMRBS raw full load replication task"
+  value       = aws_dms_replication_task.somrbs_raw_full_migration.replication_task_arn
+}
+
+output "dms_somrbs_raw_full_task_id" {
+  description = "ID of the DMS SOMRBS raw full load replication task"
+  value       = aws_dms_replication_task.somrbs_raw_full_migration.replication_task_id
+}
+
+# SOMWF3 Raw Tasks
+output "dms_somwf3_raw_cdc_task_arn" {
+  description = "ARN of the DMS SOMWF3 raw CDC replication task"
+  value       = aws_dms_replication_task.somwf3_raw_cdc_migration.replication_task_arn
+}
+
+output "dms_somwf3_raw_cdc_task_id" {
+  description = "ID of the DMS SOMWF3 raw CDC replication task"
+  value       = aws_dms_replication_task.somwf3_raw_cdc_migration.replication_task_id
+}
+
+output "dms_somwf3_raw_full_task_arn" {
+  description = "ARN of the DMS SOMWF3 raw full load replication task"
+  value       = aws_dms_replication_task.somwf3_raw_full_migration.replication_task_arn
+}
+
+output "dms_somwf3_raw_full_task_id" {
+  description = "ID of the DMS SOMWF3 raw full load replication task"
+  value       = aws_dms_replication_task.somwf3_raw_full_migration.replication_task_id
+}

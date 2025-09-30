@@ -1,0 +1,105 @@
+# ------------------------------------------------------
+# Add new source end points here for DMS.
+# This instructs where to get the data.
+# ------------------------------------------------------
+
+
+data "aws_iam_role" "dms_vpc_role" {
+  name = var.dms_vpc_role_name
+}
+
+# Reference existing secrets that are created in the infra repo
+data "aws_secretsmanager_secret" "entergy_shared_dms_esom_ggn" {
+  name = "entergy_shared_dms_ESOM_GGN"
+}
+
+data "aws_secretsmanager_secret" "entergy_shared_dms_esom_ano" {
+  name = "entergy_shared_dms_ESOM_ANO"
+}
+
+data "aws_secretsmanager_secret" "entergy_shared_dms_esom_rbs" {
+  name = "entergy_shared_dms_ESOM_RBS"
+}
+
+data "aws_secretsmanager_secret" "entergy_shared_dms_esom_wf3" {
+  name = "entergy_shared_dms_ESOM_WF3"
+}
+
+# DMS Source Endpoint - Oracle ESOM GG
+resource "aws_dms_endpoint" "esom_ggn_oracle_source_endpoint" {
+  endpoint_id                     = "esom-ggn-oracle-endpoint-source"
+  endpoint_type                   = "source"
+  engine_name                     = "oracle"
+  database_name                   = var.source_database_name
+  secrets_manager_access_role_arn = data.aws_iam_role.dms_vpc_role.arn
+  secrets_manager_arn             = data.aws_secretsmanager_secret.entergy_shared_dms_esom_ggn.arn
+
+  tags = {
+    Name         = "ESOM-GGN-Oracle-Source"
+    Environment  = var.environment
+    Pod          = var.pod
+    Businessunit = var.businessunit
+    Project      = "NUC-DataLake"
+    SourceSystem = "oracle"
+    ManagedBy    = "terraform"
+  }
+}
+# DMS Source Endpoint - Oracle ESOM ANO
+resource "aws_dms_endpoint" "esom_ano_oracle_source_endpoint" {
+  endpoint_id                     = "esom-ano-oracle-endpoint-source"
+  endpoint_type                   = "source"
+  engine_name                     = "oracle"
+  database_name                   = "somanotr.world"
+  secrets_manager_access_role_arn = data.aws_iam_role.dms_vpc_role.arn
+  secrets_manager_arn             = data.aws_secretsmanager_secret.entergy_shared_dms_esom_ano.arn
+
+  tags = {
+    Name         = "ESOM-ANO-Oracle-Source"
+    Environment  = var.environment
+    Pod          = var.pod
+    Businessunit = var.businessunit
+    Project      = "NUC-DataLake"
+    SourceSystem = "oracle"
+    ManagedBy    = "terraform"
+  }
+}
+
+# DMS Source Endpoint - Oracle ESOM RBS
+resource "aws_dms_endpoint" "esom_rbs_oracle_source_endpoint" {
+  endpoint_id                     = "esom-rbs-oracle-endpoint-source"
+  endpoint_type                   = "source"
+  engine_name                     = "oracle"
+  database_name                   = "somrbstr.world"
+  secrets_manager_access_role_arn = data.aws_iam_role.dms_vpc_role.arn
+  secrets_manager_arn             = data.aws_secretsmanager_secret.entergy_shared_dms_esom_rbs.arn
+
+  tags = {
+    Name         = "ESOM-RBS-Oracle-Source"
+    Environment  = var.environment
+    Pod          = var.pod
+    Businessunit = var.businessunit
+    Project      = "NUC-DataLake"
+    SourceSystem = "oracle"
+    ManagedBy    = "terraform"
+  }
+}
+
+# DMS Source Endpoint - Oracle ESOM WF3
+resource "aws_dms_endpoint" "esom_wf3_oracle_source_endpoint" {
+  endpoint_id                     = "esom-wf3-oracle-endpoint-source"
+  endpoint_type                   = "source"
+  engine_name                     = "oracle"
+  database_name                   = "somwf3tr.world"
+  secrets_manager_access_role_arn = data.aws_iam_role.dms_vpc_role.arn
+  secrets_manager_arn             = data.aws_secretsmanager_secret.entergy_shared_dms_esom_wf3.arn
+
+  tags = {
+    Name         = "ESOM-WF3-Oracle-Source"
+    Environment  = var.environment
+    Pod          = var.pod
+    Businessunit = var.businessunit
+    Project      = "NUC-DataLake"
+    SourceSystem = "oracle"
+    ManagedBy    = "terraform"
+  }
+}
