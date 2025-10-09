@@ -1,0 +1,78 @@
+from pyspark.sql import SparkSession
+
+# ------------------------------------------------------------------------------------
+# ENV CONFIG
+# ------------------------------------------------------------------------------------
+ENV = "dev"
+S3_PATH = "s3://data-lake-dev/metadata/glue_cdc_metadata_control/"
+DB_NAME = "metadata_db_dev"
+TABLE_NAME = "glue_cdc_metadata_control"
+
+# ------------------------------------------------------------------------------------
+# INITIALIZE SPARK WITH HIVE SUPPORT (for Glue Catalog)
+# ------------------------------------------------------------------------------------
+spark = SparkSession.builder \
+    .appName(f"GlueCDCMetadataControl-{ENV}") \
+    .enableHiveSupport() \
+    .getOrCreate()
+
+# ------------------------------------------------------------------------------------
+# METADATA RECORDS
+# ------------------------------------------------------------------------------------
+records = [
+    # ESOM_GGN
+    {"db_source": "ESOM_GGN", "table_name": "WORK_ORDER_DOCUMENTS", "input_prefix": "somggn_raw.db/work_order_documents/", "output_prefix": "somggn_dq.db/work_order_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_GGN", "table_name": "SHIFT_STAFFING", "input_prefix": "somggn_raw.db/shift_staffing/", "output_prefix": "somggn_dq.db/shift_staffing/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_GGN", "table_name": "LOG_ENTRY_DOCUMENTS", "input_prefix": "somggn_raw.db/log_entry_documents/", "output_prefix": "somggn_dq.db/log_entry_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_GGN", "table_name": "ACT_TAGOUT_SECTION_DOCUMENTS", "input_prefix": "somggn_raw.db/act_tagout_section_documents/", "output_prefix": "somggn_dq.db/act_tagout_section_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_GGN", "table_name": "REVISION_DOCUMENTS", "input_prefix": "somggn_raw.db/revision_documents/", "output_prefix": "somggn_dq.db/revision_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+
+    # ESOM_RBS
+    {"db_source": "ESOM_RBS", "table_name": "SHIFT_STAFFING", "input_prefix": "somrbs_raw.db/shift_staffing/", "output_prefix": "somrbs_dq.db/shift_staffing/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_RBS", "table_name": "LOG_ENTRY_DOCUMENTS", "input_prefix": "somrbs_raw.db/log_entry_documents/", "output_prefix": "somrbs_dq.db/log_entry_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_RBS", "table_name": "ACT_TAGOUT_SECTION_DOCUMENTS", "input_prefix": "somrbs_raw.db/act_tagout_section_documents/", "output_prefix": "somrbs_dq.db/act_tagout_section_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_RBS", "table_name": "TOUR_DOCUMENTS", "input_prefix": "somrbs_raw.db/tour_documents/", "output_prefix": "somrbs_dq.db/tour_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_RBS", "table_name": "WORK_ORDER_DOCUMENTS", "input_prefix": "somrbs_raw.db/work_order_documents/", "output_prefix": "somrbs_dq.db/work_order_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_RBS", "table_name": "SPLIT_SHIFT_LIST", "input_prefix": "somrbs_raw.db/split_shift_list/", "output_prefix": "somrbs_dq.db/split_shift_list/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+
+    # ESOM_ANO
+    {"db_source": "ESOM_ANO", "table_name": "SHIFT_STAFFING", "input_prefix": "somano_raw.db/shift_staffing/", "output_prefix": "somano_dq.db/shift_staffing/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_ANO", "table_name": "LOG_ENTRY_DOCUMENTS", "input_prefix": "somano_raw.db/log_entry_documents/", "output_prefix": "somano_dq.db/log_entry_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ESOM_ANO", "table_name": "ACT_TAGOUT_SECTION_DOCUMENTS", "input_prefix": "somano_raw.db/act_tagout_section_documents/", "output_prefix": "somano_dq.db/act_tagout_section_documents/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+
+    # P6
+    {"db_source": "P6", "table_name": "TASKACTV", "input_prefix": "p6_raw.db/taskactv/", "output_prefix": "p6_dq.db/taskactv/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "UDFVALUE", "input_prefix": "p6_raw.db/udfvalue/", "output_prefix": "p6_dq.db/udfvalue/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "TASKPRED", "input_prefix": "p6_raw.db/taskpred/", "output_prefix": "p6_dq.db/taskpred/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "TASKRSRC", "input_prefix": "p6_raw.db/taskrsrc/", "output_prefix": "p6_dq.db/taskrsrc/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "TASKMEMO", "input_prefix": "p6_raw.db/taskmemo/", "output_prefix": "p6_dq.db/taskmemo/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "TASKFDBK", "input_prefix": "p6_raw.db/taskfdbk/", "output_prefix": "p6_dq.db/taskfdbk/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "VIEWPROP", "input_prefix": "p6_raw.db/viewprop/", "output_prefix": "p6_dq.db/viewprop/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "TASKPROC", "input_prefix": "p6_raw.db/taskproc/", "output_prefix": "p6_dq.db/taskproc/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "TASKNOTE", "input_prefix": "p6_raw.db/tasknote/", "output_prefix": "p6_dq.db/tasknote/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "FILTPROP", "input_prefix": "p6_raw.db/filtprop/", "output_prefix": "p6_dq.db/filtprop/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "P6", "table_name": "PROJCOST", "input_prefix": "p6_raw.db/projcost/", "output_prefix": "p6_dq.db/projcost/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+
+    # ENGAGEFIN
+    {"db_source": "ENGAGEFIN", "table_name": "ENG_LOG", "input_prefix": "engagefin_raw.db/eng_log/", "output_prefix": "engagefin_dq.db/eng_log/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ENGAGEFIN", "table_name": "ENG_PROCESS_LOG", "input_prefix": "engagefin_raw.db/eng_process_log/", "output_prefix": "engagefin_dq.db/eng_process_log/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []},
+    {"db_source": "ENGAGEFIN", "table_name": "LCM_WORKBOOK_STAGE_VALUES", "input_prefix": "engagefin_raw.db/lcm_workbook_stage_values/", "output_prefix": "engagefin_dq.db/lcm_workbook_stage_values/", "load_type": "cdc", "last_full_load_date": None, "last_cdc_load_date": None, "pk_fields": []}
+]
+
+# ------------------------------------------------------------------------------------
+# CREATE DATAFRAME AND WRITE TO GLUE CATALOG
+# ------------------------------------------------------------------------------------
+df = spark.createDataFrame(records)
+
+# Create database if not exists
+spark.sql(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}")
+
+# Write Parquet to S3 and register table in Glue Catalog
+df.write \
+    .mode("overwrite") \
+    .format("parquet") \
+    .option("path", S3_PATH) \
+    .saveAsTable(f"{DB_NAME}.{TABLE_NAME}")
+
+print(f"✅ Glue table '{TABLE_NAME}' created in database '{DB_NAME}' for {ENV} environment.")
+print(f"📍 S3 location: {S3_PATH}")
