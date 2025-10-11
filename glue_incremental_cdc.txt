@@ -1,0 +1,244 @@
+import boto3
+from datetime import datetime, timedelta , timezone , date
+from pyspark.context import SparkContext
+from pyspark.sql import Window
+from pyspark.sql.functions import *
+from awsglue.context import GlueContext
+from awsglue.utils import getResolvedOptions
+import sys
+
+args = getResolvedOptions(
+    sys.argv,
+    [
+        "JOB_NAME",
+        "raw_bucket",
+        "dq_bucket",
+        "db_source"    ]
+)
+
+# Spark + Glue setup
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+
+raw_bucket = args["raw_bucket"]
+dq_bucket = args["dq_bucket"]
+db_name = args["db_source"]
+metadata_table_name = "cdc_metadata_control"
+
+print(f"Starting CDC job for databse: {db_name}")
+
+
+
+#----------------------------------
+# DB_SOURCE --> S3 PREFIX_MAPPING
+#----------------------------------
+
+
+DB_TO_S3_PREFIX = {
+ 
+             "ESOM_ANO" : "somano_raw.db",
+             "ESOM_RBS" : "somrbs_raw.db",
+             "ESOM_GGN" : "somggn_raw.db",
+             "ESOM_WF3" : "somwf3_raw.db",
+             "ENGAGE"   : "engage_raw.db",
+             "ENGAGEFIN": "engagefin_raw.db"
+}
+
+schema_name =  DB_TO_S3_PREFIX.get(db_name) 
+
+if not schema_name:  
+       
+       raise ValueError(f" unkown db_source:{db_name} -- please check mappings")
+      
+
+
+#--------------------------
+# AWS S3 and dynamo_db client
+#--------------------------
+s3 = boto3.client("s3")
+dynamodb = boto3.resource("dynamodb")
+metadata_table = dynamodb.Table(metadata_table_name)
+
+
+
+
+def s3_prefix_exists(bucket, prefix):
+    resp = s3.list_objects_v2(Bucket=bucket, Prefix=prefix, MaxKeys=1)
+    return "Contents" in resp
+
+
+
+# List all tables under schema folder
+def list_tables_in_schema(bucket, schema):
+    paginator = s3.get_paginator("list_objects_v2")
+    result = paginator.paginate(Bucket=bucket, Prefix=f"{schema}/", Delimiter="/")
+    tables = []
+    for page in result:
+        for prefix in page.get("CommonPrefixes", []):
+            table_name = prefix["Prefix"].split("/")[-2]
+            tables.append(table_name)
+    return tables
+
+
+# returns list of valid s3 paths for the given range.
+def get_valid_cdc_paths( bucket, input_prefix, start_date, end_date):
+
+    valid_paths = []
+    current = start_date
+
+    while current <= end_date:
+
+        prefix = f"{input_prefix}{current:%Y/%m/%d}/"
+        if s3_prefix_exists(raw_bucket, prefix):
+            valid_paths.append(f"s3://{bucket}/{prefix}")
+
+        current += timedelta(days=1)
+
+    return valid_paths 
+
+
+
+def build_merge_condition(table_name, pk_fileds):
+    
+    """"
+      Build the ON clause for Spark SQL MERGE (Iceberg).
+
+    """
+
+    if not pk_fileds: 
+           
+           raise ValueError ("pk_fields must not be empty")
+    
+    conditions = []
+    for pk in pk_fileds : 
+        conditions.append(f"t.{pk} = s.{pk}")
+    return " AND".join(conditions)
+
+
+
+
+def apply_dq_rules(df, table_name, pk_fileds, iceberg_table): 
+     
+    cdc_df = df 
+    dms_metadata_columns = ['op', 'edl_load_date'] 
+    OP_COL ='op'
+    target_table_cols=set(spark.table(iceberg_table).columns)
+
+    cdc_df=cdc_df.withColumn("edl_load_date", to_timestamp(col('edl_load_date') ,"yyyy-MM-dd HH:mm:ss.SSSSSS"))
+    window_spec= Window.partitionBy(*pk_fileds).orderBy(col('edl_load_date').desc())
+    ranked_df  =cdc_df.withColumn('rnk',row_number().over(window_spec))
+    latest_df=ranked_df.filter(col('rnk')==1)\
+                         .drop('rnk','edl_load_date')   
+    
+    merge_condition = build_merge_condition(table_name, pk_fileds) 
+
+    business_cols = [ c for c in latest_df.columns if c in target_table_cols and c not in set(pk_fileds) | set(dms_metadata_columns)]
+    update_set = ", ".join([f"t.`{col}` = s.`{col}` for col in business_cols"])
+    insert_cols = pk_fileds + business_cols
+
+
+    latest_df.createOrReplaceTempView('source_table') 
+
+
+
+    merge_sql = f""" 
+                     MERGE INTO {iceberg_table} t
+                     USING source_table s 
+                           ON {merge_condition}
+                     WHEN MATCHED AND s.op = 'D' THEN DELETE 
+                     WHEN MATCHED AND s.op IN ('I','U') THEN UPDATE SET {business_cols}
+                     WHEN NOT MATCHED AND s.op IN ('I','U) THEN 
+                          INSERT ({", ".join([f"`{c}`" for c in insert_cols])})
+                          VALUES ({", ".join([f"s.`{c}`" for c in insert_cols])})
+    """
+
+    print(f"executing merge on table {table_name}")
+    spark.sql(merge_sql)
+    
+
+
+
+
+tables = list_tables_in_schema(raw_bucket, schema_name)
+print(f"Found {len(tables)} tables under schema {schema_name}: {tables}")
+
+# Loop through each table
+for table_name in tables:
+
+    print(f"\n Processing table: {table_name}")
+
+    # Lookup metadata record
+    response = metadata_table.get_item(
+        Key={
+            "db_source": db_name,
+            "table_name": table_name
+        }
+    )
+    item = response.get("Item")
+
+    if not item or item.get("load_type") != "cdc":
+        print(f"This table is not for cdc set up . Skipping it \n")
+        continue
+
+    last_full_load_date = item.get("last_full_load_date")
+    last_cdc_load_date = item.get("last_cdc_load_date")
+
+    #generating a generalized input and output prefix
+    input_prefix = f"{schema_name}/{table_name}/"
+    output_prefix = f"{schema_name.replace('_raw','_dq')}/{table_name.lower()}/"
+    iceberg_table = f"glue_catalog.{db_name.lower()}.{table_name.lower()}"
+    print(f"for table:{table_name} input_prefix:{input_prefix} and output_prefix:{output_prefix}")
+
+    last_full_load_date = item.get("last_full_load_date")
+    last_cdc_load_date = item.get("last_cdc_load_date")
+
+    today_utc = datetime.now(timezone.utc).date() 
+    end_date = today_utc - timedelta(days=1)
+    
+    
+    if last_cdc_load_date:
+        start_date = date.formisoformat(last_cdc_load_date) + timedelta(days=1)
+    elif last_full_load_date:
+        start_date = date.formisoformat(last_full_load_date)
+    else:
+        start_date = end_date
+    print(f"CDC date range for table:{schema_name}.{table_name} is {start_date} to {end_date}") 
+
+    if start_date > end_date : 
+        print(f"Nothing to process (start_date {start_date} > end_date {end_date}).\n")
+
+
+    valid_paths=get_valid_cdc_paths(raw_bucket, input_prefix, start_date, end_date)
+
+    if not valid_paths:
+        print(f"No CDC folders found for {schema_name}/{table_name}")
+        continue
+
+    print(f"Found {len(valid_paths)} CDC folders to process")
+
+    last_processed_date = None  
+
+    #Process each CDC path
+    for path in valid_paths:
+        try:
+            step="READ"
+            print(f"Reading CDC path: {path}")
+            df_raw = spark.read.parquet(path) 
+            
+            step="MERGE"
+            apply_dq_rules(df_raw, table_name,iceberg_table)
+            print(f"Written DQ data for {table_name}")
+
+            parts = path.rstrip("/").split("/")
+            last_processed_date = f"{parts[-3]}-{parts[-2]}-{parts[-1]}"
+        except Exception as e:
+            print(f"Error processing {path}: {e}")
+
+    if last_processed_date:
+        metadata_table.update_item(
+            Key={"db_source": schema_name, "table_name": table_name},
+            UpdateExpression="SET last_cdc_load_date = :v",
+            ExpressionAttributeValues={":v": last_processed_date}
+        )
+        print(f"Updated last_cdc_load_date to {last_processed_date} for {table_name}")
