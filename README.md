@@ -1,9 +1,10 @@
 # copn
 
+
+
 import boto3
 from botocore.exceptions import ClientError
 
-# 🔹 Replace this with your actual AWS profile and region
 PROFILE_NAME = "331875467123_Entergy_Gov_DataCore_DE_DEV"
 REGION = "us-gov-east-1"
 TABLE_NAME = "etl_metadata_test"
@@ -13,12 +14,10 @@ def main():
     session = boto3.Session(profile_name=PROFILE_NAME)
     dynamodb = session.resource("dynamodb", region_name=REGION)
 
-    # List existing tables
     print("📋 Listing existing DynamoDB tables:")
     for tname in dynamodb.tables.all():
         print("  -", tname.name)
 
-    # Check if our test table exists
     existing = [t.name for t in dynamodb.tables.all()]
     if TABLE_NAME not in existing:
         print(f"\n🧱 Creating new DynamoDB table: {TABLE_NAME}")
@@ -54,7 +53,6 @@ def main():
     )
     print("✅ Item inserted.")
 
-    # Get it back
     print("\n📥 Reading it back from DynamoDB...")
     response = table.get_item(
         Key={"db_source": "sales", "table_name": "orders"}
