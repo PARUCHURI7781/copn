@@ -1,0 +1,121 @@
+import boto3
+from datetime import datetime, timedelta
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.utils import getResolvedOptions
+from dq_utils import apply_dq_rules
+import sys
+
+args = getResolvedOptions(
+    sys.argv,
+    [
+        "JOB_NAME",
+        "raw_bucket",
+        "dq_bucket",
+        "schema_name",
+        "metadata_table_name"
+    ]
+)
+
+# Spark + Glue setup
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+
+raw_bucket = args["raw_bucket"]
+dq_bucket = args["dq_bucket"]
+schema_name = args["schema_name"]
+metadata_table_name = args["metadata_table_name"]
+
+print(f"🔹 Starting CDC for schema: {schema_name}")
+
+s3 = boto3.client("s3")
+dynamodb = boto3.resource("dynamodb")
+metadata_table = dynamodb.Table(metadata_table_name)
+
+# Helper: check prefix exists
+def s3_prefix_exists(bucket, prefix):
+    resp = s3.list_objects_v2(Bucket=bucket, Prefix=prefix, MaxKeys=1)
+    return "Contents" in resp
+
+# List all tables under schema folder
+def list_tables_in_schema(bucket, schema):
+    paginator = s3.get_paginator("list_objects_v2")
+    result = paginator.paginate(Bucket=bucket, Prefix=f"{schema}/", Delimiter="/")
+    tables = []
+    for page in result:
+        for prefix in page.get("CommonPrefixes", []):
+            table_name = prefix["Prefix"].split("/")[-2]
+            tables.append(table_name)
+    return tables
+
+tables = list_tables_in_schema(raw_bucket, schema_name)
+print(f"📚 Found {len(tables)} tables under schema {schema_name}: {tables}")
+
+# Loop through each table
+for table_name in tables:
+    print(f"\n🚀 Processing table: {table_name}")
+
+    # Lookup metadata record
+    response = metadata_table.get_item(
+        Key={
+            "db_source": schema_name,
+            "table_name": table_name
+        }
+    )
+    item = response.get("Item")
+
+    if not item or item.get("load_type") != "cdc":
+        print(f"⚠️ No CDC config found for {schema_name}.{table_name}, skipping.")
+        continue
+
+    input_prefix = item["input_prefix"]
+    output_prefix = item["output_prefix"]
+    last_full_load_date = item.get("last_full_load_date")
+    last_cdc_load_date = item.get("last_cdc_load_date")
+
+    today = datetime.today()
+    yesterday = today - timedelta(days=1)
+
+    if last_cdc_load_date:
+        start_date = datetime.strptime(last_cdc_load_date, "%Y-%m-%d") + timedelta(days=1)
+    elif last_full_load_date:
+        start_date = datetime.strptime(last_full_load_date, "%Y-%m-%d")
+    else:
+        start_date = yesterday
+
+    end_date = yesterday
+
+    valid_paths = []
+    current = start_date
+    while current <= end_date:
+        prefix = f"{input_prefix}{current.year}/{current.month:02d}/{current.day:02d}/"
+        if s3_prefix_exists(raw_bucket, prefix):
+            valid_paths.append(f"s3://{raw_bucket}/{prefix}")
+        current += timedelta(days=1)
+
+    if not valid_paths:
+        print(f"⚠️ No CDC folders found for {table_name}")
+        continue
+
+    print(f"📁 Found {len(valid_paths)} CDC folders to process")
+
+    last_processed_date = None
+    for path in valid_paths:
+        try:
+            df_raw = spark.read.parquet(path)
+            dq_df = apply_dq_rules(df_raw, table_name)
+            dq_df.write.mode("append").parquet(f"s3://{dq_bucket}/{output_prefix}")
+            print(f"   💾 Written DQ data for {table_name}")
+            parts = path.rstrip("/").split("/")
+            last_processed_date = f"{parts[-3]}-{parts[-2]}-{parts[-1]}"
+        except Exception as e:
+            print(f"   ⚠️ Error processing {path}: {e}")
+
+    if last_processed_date:
+        metadata_table.update_item(
+            Key={"db_source": schema_name, "table_name": table_name},
+            UpdateExpression="SET last_cdc_load_date = :v",
+            ExpressionAttributeValues={":v": last_processed_date}
+        )
+        print(f"📝 Updated last_cdc_load_date to {last_processed_date} for {table_name}")
