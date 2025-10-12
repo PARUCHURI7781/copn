@@ -1,0 +1,39 @@
+import boto3
+from botocore.exceptions import ClientError
+
+# ---------- CONFIGURATION ----------
+PROFILE_NAME = "your-aws-profile"       # e.g. "default" or "Entergy_Gov_DataCore_DE_DEV"
+REGION = "us-east-1"
+TABLE_NAME = "etl_metadata_control"     # DynamoDB table name
+# ------------------------------------
+
+# ---------- SESSION & CLIENT ----------
+session = boto3.Session(profile_name=PROFILE_NAME, region_name=REGION)
+dynamodb = session.resource("dynamodb")
+table = dynamodb.Table(TABLE_NAME)
+
+# ---------- ITEM TO INSERT ----------
+item = {
+    "db_source": "dbo",
+    "table_name": "ENG_ROLE_PERMISSIONS",
+    "load_type": "cdc",
+    "last_full_load_date": "none",
+    "last_cdc_load_date": "none",
+    "pk_fields": "none"
+}
+
+# ---------- INSERT ----------
+try:
+    print(f"🧱 Inserting test record into {TABLE_NAME} ...")
+    table.put_item(Item=item)
+    print("✅ Item inserted successfully.")
+
+    # Read back to confirm
+    response = table.get_item(Key={"db_source": "dbo", "table_name": "ENG_ROLE_PERMISSIONS"})
+    print("🔍 Retrieved item:")
+    print(response.get("Item"))
+
+except ClientError as e:
+    print("❌ AWS Error:", e)
+except Exception as ex:
+    print("❌ Unexpected Error:", ex)
