@@ -1,0 +1,100 @@
+############################################################
+# Local Script to Create Glue Audit Tables (Iceberg)
+# ---------------------------------------------------------
+# ✅ Runs from VS Code using PySpark (no GlueContext)
+# ✅ Creates Iceberg-backed audit tables in Glue Catalog
+# ✅ Connects to real AWS Glue + S3
+############################################################
+
+import boto3
+import logging
+from pyspark.sql import SparkSession
+
+# ---------------------------------------------------------
+# CONFIGURATION — UPDATE THESE
+# ---------------------------------------------------------
+PROFILE_NAME = "your-aws-profile"         # e.g. "default"
+REGION = "us-east-1"
+DQ_BUCKET = "your-dq-bucket-name"         # e.g. dq-data-zone-bucket
+AUDIT_DB = "audit_db"                     # Name of Glue audit database
+CATALOG_NAME = "glue_catalog"             # Always 'glue_catalog' for Iceberg via Glue
+
+# ---------------------------------------------------------
+# SPARK SETUP
+# ---------------------------------------------------------
+spark = (
+    SparkSession.builder.appName("LocalCreateAuditTables")
+    .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions")
+    .config("spark.sql.catalog.glue_catalog", "org.apache.iceberg.spark.SparkCatalog")
+    .config("spark.sql.catalog.glue_catalog.catalog-impl", "org.apache.iceberg.aws.glue.GlueCatalog")
+    .config("spark.sql.catalog.glue_catalog.io-impl", "org.apache.iceberg.aws.s3.S3FileIO")
+    .config("spark.sql.catalog.glue_catalog.warehouse", f"s3://{DQ_BUCKET}/")
+    .getOrCreate()
+)
+spark.sparkContext.setLogLevel("INFO")
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# ---------------------------------------------------------
+# MAIN LOGIC
+# ---------------------------------------------------------
+def main():
+    logger.info(f"🚀 Creating audit database and tables in Glue Catalog ({CATALOG_NAME})")
+
+    # Create audit database (if not exists)
+    spark.sql(f"CREATE DATABASE IF NOT EXISTS {CATALOG_NAME}.{AUDIT_DB}")
+    logger.info(f"✅ Database created (or exists): {CATALOG_NAME}.{AUDIT_DB}")
+
+    # -----------------------------------------------------
+    # 1️⃣ Workflow-level audit table
+    # -----------------------------------------------------
+    spark.sql(f"""
+    CREATE TABLE IF NOT EXISTS {CATALOG_NAME}.{AUDIT_DB}.etl_workflow_audit (
+        event_id STRING,
+        workflow_name STRING,
+        workflow_runid STRING,
+        db_name STRING,
+        status STRING,
+        start_time TIMESTAMP,
+        end_time TIMESTAMP,
+        total_tables_processed INT,
+        total_success INT,
+        total_failed INT,
+        failure_reason STRING
+    )
+    USING iceberg
+    """)
+
+    logger.info("✅ Created etl_workflow_audit table")
+
+    # -----------------------------------------------------
+    # 2️⃣ Table-level audit table
+    # -----------------------------------------------------
+    spark.sql(f"""
+    CREATE TABLE IF NOT EXISTS {CATALOG_NAME}.{AUDIT_DB}.etl_table_audit (
+        event_id STRING,
+        workflow_runid STRING,
+        schema_name STRING,
+        table_name STRING,
+        status STRING,
+        start_time TIMESTAMP,
+        end_time TIMESTAMP,
+        record_count BIGINT,
+        failure_reason STRING
+    )
+    USING iceberg
+    """)
+
+    logger.info("✅ Created etl_table_audit table")
+
+    logger.info("🎉 All audit tables created successfully.")
+
+# ---------------------------------------------------------
+# ENTRY POINT
+# ---------------------------------------------------------
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        logger.error(f"❌ Unexpected error: {e}", exc_info=True)
