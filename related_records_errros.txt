@@ -1,0 +1,824 @@
+timestamp,message
+1760296160411,"Preparing ...
+"
+1760296160415,"Sun Oct 12 19:09:20 UTC 2025
+"
+1760296160421,"/etc/alternatives/jre/bin/java --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.math=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED --add-opens=java.base/java.util.regex=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/jdk.internal=ALL-UNNAMED --add-opens=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/jdk.internal.reflect=ALL-UNNAMED --add-opens=java.base/jdk.internal.util=ALL-UNNAMED --add-opens=java.base/jdk.internal.util.random=ALL-UNNAMED --add-opens=java.sql/java.sql=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED -XX:+IgnoreUnrecognizedVMOptions -Djavax.net.ssl.trustStore=/opt/amazon/certs/InternalAndExternalAndAWSTrustStore.jks -Djavax.net.ssl.trustStoreType=JKS -Djavax.net.ssl.trustStorePassword=amazon -DRDS_ROOT_CERT_PATH=/opt/amazon/certs/rds-combined-ca-bundle.pem -DREDSHIFT_ROOT_CERT_PATH=/opt/amazon/certs/redshift-ssl-ca-cert.pem -DRDS_TRUSTSTORE_URL=file:/opt/amazon/certs/InternalAndExternalAndAWSTrustStore.jks -cp /usr/share/aws/aws-glue-shuffle/*:/usr/share/aws/emr-glue-bootstrap/*:/usr/lib/spark/jars/*:/usr/lib/spark/conf:/usr/share/aws/aws-java-sdk-v2/*:/usr/share/aws/*:/usr/share/aws/hmclient/lib/aws-glue-datacatalog-spark-client.jar:/usr/share/aws/hmclient/lib/*:/usr/share/aws/iceberg/lib/*:/usr/share/aws/delta/lib/*:/usr/lib/hudi/*:/usr/share/aws/redshift/jdbc/*:/usr/share/aws/redshift/spark-redshift/lib/*:/usr/share/aws/glue-connectors/lib/*:/usr/share/aws/glue-pii-dependencies/lib/*:/usr/share/aws/datazone-openlineage-spark/lib/*:/usr/lib/hadoop/lib/*::/usr/lib/hadoop-lzo/lib/*:/usr/share/aws/aws-java-sdk/*:/usr/share/aws/emr/emrfs/conf:/usr/share/aws/emr/emrfs/lib/*:/usr/share/aws/emr/emrfs/auxlib/*:/usr/share/aws/emr/ddb/lib/emr-ddb-hadoop.jar:/usr/share/aws/emr/goodies/lib/emr-hadoop-goodies.jar:/usr/share/aws/emr/cloudwatch-sink/lib/*:/usr/share/aws/emr/security/conf:/usr/share/aws/emr/security/lib/*:/usr/lib/hadoop/*:/etc/hadoop/conf:/usr/share/java/Hive-JSON-Serde/* -Dlog4j2.configurationFile=/etc/spark/conf.dist/log4j2.properties com.amazonaws.services.glue.GlueBootstrap --conf spark.dynamicAllocation.enabled=true --conf spark.shuffle.service.enabled=true --conf spark.dynamicAllocation.minExecutors=1 --conf spark.dynamicAllocation.maxExecutors=1 --conf spark.executor.memory=10g --conf spark.driver.memory=10g --conf spark.network.timeout=600 --app_name maximo_dq_relatedrecord    --glue-di-packages-correlation-ids 20250828-143656_,20250828-143656_,6376818366,6376818366 --TempDir s3://aws-glue-assets-331875467123-us-gov-west-1/entergy-gov-data-core-code/temporary/ --internal-lib-urls https://prod-us-gov-west-1-package-distribution-artifacts-bucket.s3.us-gov-west-1.amazonaws.com/006/Glue5.0/aws-glue-dataplane-python/java17/5.0.704/ufak9W-AWSGlueDataplanePython-5.0.704.py.zip?X-Amz-Security-Token=FwoDYXdzEDIaDORPOBwnSmdXlcCnpiKuAdbrMvLu6jqym3J2Jztm3ePt0sll1dZAhg3ZUH5jDcgpYii5BxzBvA43o1QhP%2FIxKU4zAz7ZemIN%2Bq%2F9BE7kx%2FDzats4O1xmtRSFnk6xOKA%2BEnPMAmFr8wKOZEpz7VJAlP4OZOIMkkXU4mhw0mVzAyk%2BkvvdsZ%2F8%2FeeIRp%2Fw4rYMVA9VqE6nOVOrTdtZf5B%2BdZX1prek5Sn5XnwQBI82G5wcljynWDpDROzyrSMy%2FyjZ%2Ba%2FHBjIfCHP9JNYxmxEoUOOOFU%2Fj52EZvoNF%2BFDcoCokveRlkg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251012T190913Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIARNA7EHT3K2OG3FFQ%2F20251012%2Fus-gov-west-1%2Fs3%2Faws4_request&X-Amz-Expires=1800&X-Amz-Signature=eb93723bd06cb2ca665230fe0c6859a060eebff96422ee4afe53be03438e5585,https://prod-us-gov-west-1-package-distribution-artifacts-bucket.s3.us-gov-west-1.amazonaws.com/006/Glue5.0/aws-glue-di-libs/java17/5.0.704/odvJng-aws-glue-di-package-5.0.704.jar?X-Amz-Security-Token=FwoDYXdzEDIaDORPOBwnSmdXlcCnpiKuAdbrMvLu6jqym3J2Jztm3ePt0sll1dZAhg3ZUH5jDcgpYii5BxzBvA43o1QhP%2FIxKU4zAz7ZemIN%2Bq%2F9BE7kx%2FDzats4O1xmtRSFnk6xOKA%2BEnPMAmFr8wKOZEpz7VJAlP4OZOIMkkXU4mhw0mVzAyk%2BkvvdsZ%2F8%2FeeIRp%2Fw4rYMVA9VqE6nOVOrTdtZf5B%2BdZX1prek5Sn5XnwQBI82G5wcljynWDpDROzyrSMy%2FyjZ%2Ba%2FHBjIfCHP9JNYxmxEoUOOOFU%2Fj52EZvoNF%2BFDcoCokveRlkg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251012T190913Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIARNA7EHT3K2OG3FFQ%2F20251012%2Fus-gov-west-1%2Fs3%2Faws4_request&X-Amz-Expires=1800&X-Amz-Signature=13dc002305296cfdff5a74962c25c8d2c3b98cc0431d9fe323d662d957c1ec76,https://prod-us-gov-west-1-package-distribution-artifacts-bucket.s3.us-gov-west-1.amazonaws.com/006/Glue5.0/AwsGlueMLLibsPython/java17/5.0.380/3CvvA4-AwsGlueMLLibs.py.zip?X-Amz-Security-Token=FwoDYXdzEDIaDORPOBwnSmdXlcCnpiKuAdbrMvLu6jqym3J2Jztm3ePt0sll1dZAhg3ZUH5jDcgpYii5BxzBvA43o1QhP%2FIxKU4zAz7ZemIN%2Bq%2F9BE7kx%2FDzats4O1xmtRSFnk6xOKA%2BEnPMAmFr8wKOZEpz7VJAlP4OZOIMkkXU4mhw0mVzAyk%2BkvvdsZ%2F8%2FeeIRp%2Fw4rYMVA9VqE6nOVOrTdtZf5B%2BdZX1prek5Sn5XnwQBI82G5wcljynWDpDROzyrSMy%2FyjZ%2Ba%2FHBjIfCHP9JNYxmxEoUOOOFU%2Fj52EZvoNF%2BFDcoCokveRlkg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251012T190913Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIARNA7EHT3K2OG3FFQ%2F20251012%2Fus-gov-west-1%2Fs3%2Faws4_request&X-Amz-Expires=1800&X-Amz-Signature=ef5e00cc654a0356183c25b623d69899ff57a046257ca2f485a86de3a32c5ec1,https://prod-us-gov-west-1-package-distribution-artifacts-bucket.s3.us-gov-west-1.amazonaws.com/006/Glue5.0/AwsGlueMLLibs/java17/5.0.380/dj5xOe-AwsGlueMLLibs.jar?X-Amz-Security-Token=FwoDYXdzEDIaDORPOBwnSmdXlcCnpiKuAdbrMvLu6jqym3J2Jztm3ePt0sll1dZAhg3ZUH5jDcgpYii5BxzBvA43o1QhP%2FIxKU4zAz7ZemIN%2Bq%2F9BE7kx%2FDzats4O1xmtRSFnk6xOKA%2BEnPMAmFr8wKOZEpz7VJAlP4OZOIMkkXU4mhw0mVzAyk%2BkvvdsZ%2F8%2FeeIRp%2Fw4rYMVA9VqE6nOVOrTdtZf5B%2BdZX1prek5Sn5XnwQBI82G5wcljynWDpDROzyrSMy%2FyjZ%2Ba%2FHBjIfCHP9JNYxmxEoUOOOFU%2Fj52EZvoNF%2BFDcoCokveRlkg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251012T190913Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIARNA7EHT3K2OG3FFQ%2F20251012%2Fus-gov-west-1%2Fs3%2Faws4_request&X-Amz-Expires=1800&X-Amz-Signature=fc7d01156f3e1051a9d5a46787a280224703c9f1497a8e4f7539027a5f0ebc51 --config s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/config/maximo/dq/relatedrecord.yaml  --job_type data_quality --JOB_ID j_93a164e33afc70c883e5becadc30496b912ef0b2897167ec7bca8553cb79941a --extra-py-files s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/glue_packages/mosaic.zip,s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/glue_packages/sqlglot.zip,s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/glue_packages/yaml.zip   --JOB_RUN_ID jr_7cfdb218791a318a0a6c4e0f1efe0df749c9a0d6aa88d5dbf8d5cc48d670d4da_attempt_3 --scriptLocation s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/scripts/raw_dq_load.py  --tenant-internal glue --enable-auto-scaling true --JOB_NAME maximo_dq_relatedrecord
+"
+1760296160452,"openjdk version ""17.0.16"" 2025-07-15 LTS
+"
+1760296160452,"OpenJDK Runtime Environment Corretto-17.0.16.8.1 (build 17.0.16+8-LTS)
+"
+1760296160452,"OpenJDK 64-Bit Server VM Corretto-17.0.16.8.1 (build 17.0.16+8-LTS, mixed mode, sharing)
+"
+1760296161682,"25/10/12 19:09:21 INFO GlueBootstrap: Glue Bootstrapping...
+"
+1760296161686,"25/10/12 19:09:21 INFO GlueBootstrap: Glue Bootstrapping the driver...
+"
+1760296161713,"25/10/12 19:09:21 INFO GlueBootstrap: Downloading Glue libs...
+"
+1760296161726,"25/10/12 19:09:21 INFO GlueBootstrap: Downloading customer supplied extra files...
+"
+1760296162065,"25/10/12 19:09:22 WARN VersionInfoUtils: The AWS SDK for Java 1.x entered maintenance mode starting July 31, 2024 and will reach end of support on December 31, 2025. For more information, see https://aws.amazon.com/blogs/developer/the-aws-sdk-for-java-1-x-is-in-maintenance-mode-effective-july-31-2024/
+You can print where on the file system the AWS SDK for Java 1.x core runtime is located by setting the AWS_JAVA_V1_PRINT_LOCATION environment variable or aws.java.v1.printLocation system property to 'true'.
+This message can be disabled by setting the AWS_JAVA_V1_DISABLE_DEPRECATION_ANNOUNCEMENT environment variable or aws.java.v1.disableDeprecationAnnouncement system property to 'true'.
+The AWS SDK for Java 1.x is being used here:
+at java.base/java.lang.Thread.getStackTrace(Thread.java:1619)
+at glue.shaded.com.amazonaws.util.VersionInfoUtils.printDeprecationAnnouncement(VersionInfoUtils.java:81)
+at glue.shaded.com.amazonaws.util.VersionInfoUtils.<clinit>(VersionInfoUtils.java:59)
+at glue.shaded.com.amazonaws.internal.EC2ResourceFetcher.<clinit>(EC2ResourceFetcher.java:44)
+at glue.shaded.com.amazonaws.auth.InstanceMetadataServiceCredentialsFetcher.<init>(InstanceMetadataServiceCredentialsFetcher.java:38)
+at glue.shaded.com.amazonaws.auth.InstanceProfileCredentialsProvider.<init>(InstanceProfileCredentialsProvider.java:111)
+at glue.shaded.com.amazonaws.auth.InstanceProfileCredentialsProvider.<init>(InstanceProfileCredentialsProvider.java:91)
+at glue.shaded.com.amazonaws.auth.InstanceProfileCredentialsProvider.<init>(InstanceProfileCredentialsProvider.java:75)
+at glue.shaded.com.amazonaws.auth.InstanceProfileCredentialsProvider.<clinit>(InstanceProfileCredentialsProvider.java:58)
+at glue.shaded.com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper.initializeProvider(EC2ContainerCredentialsProviderWrapper.java:66)
+at glue.shaded.com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper.<init>(EC2ContainerCredentialsProviderWrapper.java:55)
+at glue.shaded.com.amazonaws.auth.DefaultAWSCredentialsProviderChain.<init>(DefaultAWSCredentialsProviderChain.java:60)
+at glue.shaded.com.amazonaws.auth.DefaultAWSCredentialsProviderChain.<clinit>(DefaultAWSCredentialsProviderChain.java:54)
+at glue.shaded.com.amazonaws.services.s3.AmazonS3ClientBuilder.standard(AmazonS3ClientBuilder.java:46)
+at glue.shaded.com.amazonaws.services.s3.AmazonS3Client.builder(AmazonS3Client.java:740)
+at com.amazonaws.services.glue.GlueLibsDownloader$Builder.getS3Client(GlueLibsDownloader.java:289)
+at com.amazonaws.services.glue.GlueLibsDownloader$Builder.build(GlueLibsDownloader.java:281)
+at com.amazonaws.services.glue.GlueBootstrap.downloadGlueLibs(GlueBootstrap.java:373)
+at com.amazonaws.services.glue.GlueBootstrap.lambda$setUpGlueAndUserLibs$1(GlueBootstrap.java:124)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:840)
+"
+1760296165364,"25/10/12 19:09:25 INFO GlueLibsDownloader: Elapsed time: 1297 millis
+"
+1760296165742,"25/10/12 19:09:25 INFO GlueLibsDownloader: Elapsed time: 1672 millis
+"
+1760296166011,"1760296166008
+"
+1760296168688,"INFO	2025-10-12T19:09:28,688	8204	com.amazonaws.services.glue.utils.concurrent.PythonModuleTask	[pool-5-thread-1]	25	Setting Up Virtual Env and Application/Customer Provided Python Modules started in async mode
+"
+1760296168691,"INFO	2025-10-12T19:09:28,691	8207	com.amazonaws.services.glue.PythonModuleInstaller	[pool-5-thread-1]	176	Command to Execute python3.11 -m venv --clear /tmp/glue_venv
+"
+1760296168697,"INFO	2025-10-12T19:09:28,697	8213	com.amazonaws.services.glue.launch.helpers.PrepareLaunchProperties	[main]	89	Get job script: raw_dq_load.py.
+"
+1760296168734,"INFO	2025-10-12T19:09:28,734	8250	com.amazonaws.services.glue.launch.helpers.SparkPropsManagerHelper	[main]	99	
+proxy {
+  host = null
+  port = -1
+}
+"
+1760296168739,"INFO	2025-10-12T19:09:28,739	8255	com.amazonaws.services.glue.utils.EndpointConfig$	[main]	36	 STAGE is prod
+"
+1760296168976,"INFO	2025-10-12T19:09:28,976	8492	com.amazonaws.services.glue.utils.EndpointConfig$	[main]	90	Endpoints: {credentials_provider=com.amazonaws.auth.DefaultAWSCredentialsProviderChain, glue.endpoint=https://glue.us-gov-west-1.amazonaws.com, lakeformation.endpoint=https://lakeformation.us-gov-west-1.amazonaws.com, jes.endpoint=https://glue-jes.us-gov-west-1.amazonaws.com, region=us-gov-west-1}
+"
+1760296169017,"INFO	2025-10-12T19:09:29,016	8532	com.amazonaws.services.glue.utils.AWSClientUtils$	[main]	98	AWSClientUtils: create aws sts client with conf: proxy hostnull, proxy port 0
+"
+1760296169647,"INFO	2025-10-12T19:09:29,646	9162	com.amazonaws.services.glue.launch.helpers.SparkPropsManagerHelper	[main]	113	optimizeParallelismConfigs started 
+"
+1760296169653,"INFO	2025-10-12T19:09:29,653	9169	com.amazonaws.services.glue.launch.helpers.SparkPropsManagerHelper	[main]	59	glue.etl.telemetry.runtimeImproveFeature.autoscaling, jr_7cfdb218791a318a0a6c4e0f1efe0df749c9a0d6aa88d5dbf8d5cc48d670d4da_attempt_3
+"
+1760296169654,"INFO	2025-10-12T19:09:29,654	9170	com.amazonaws.services.glue.launch.helpers.LoggerPropsManager	[main]	31	setupLoggerProperties...
+"
+1760296169657,"WARN	2025-10-12T19:09:29,656	9172	com.amazonaws.services.glue.launch.helpers.LoggerPropsManager	[main]	60	Logger setup failed for exception analysis: Cannot invoke ""java.net.URL.toURI()"" because the return value of ""java.lang.Class.getResource(String)"" is null
+"
+1760296169660,"INFO	2025-10-12T19:09:29,660	9176	com.amazonaws.services.glue.FileDownloader	[main]	95	downloading /tmp/glue-380291413387046264log4j2.properties file to destination location: /tmp/glue-job-6959303791097702753/glue-380291413387046264log4j2.properties
+"
+1760296170728,"INFO	2025-10-12T19:09:30,728	10244	com.amazonaws.services.glue.launch.helpers.LoggerPropsManager	[main]	78	setting up the log4j.configurationFile=/tmp/glue-job-6959303791097702753/glue-380291413387046264log4j2.properties
+"
+1760296170740,"INFO	2025-10-12T19:09:30,740	10256	com.amazonaws.services.glue.PrepareLaunch	[main]	264	Creating directory /tmp/glue-job-6959303791097702753/aws_glue_connectors
+"
+1760296170741,"INFO	2025-10-12T19:09:30,740	10256	com.amazonaws.services.glue.PrepareLaunch	[main]	264	Creating directory /tmp/glue-job-6959303791097702753/aws_glue_connectors/selected
+INFO	2025-10-12T19:09:30,741	10257	com.amazonaws.services.glue.PrepareLaunch	[main]	264	Creating directory /tmp/glue-job-6959303791097702753/exception_catch
+"
+1760296170741,"INFO	2025-10-12T19:09:30,741	10257	com.amazonaws.services.glue.PrepareLaunch	[main]	264	Creating directory /tmp/glue-job-6959303791097702753/amazon
+"
+1760296170741,"INFO	2025-10-12T19:09:30,741	10257	com.amazonaws.services.glue.PrepareLaunch	[main]	264	Creating directory /tmp/glue-job-6959303791097702753/amazon/certs
+"
+1760296170742,"INFO	2025-10-12T19:09:30,741	10257	com.amazonaws.services.glue.PrepareLaunch	[main]	264	Creating directory /tmp/glue-job-6959303791097702753/aws_glue_connectors/selected/native
+"
+1760296170742,"INFO	2025-10-12T19:09:30,741	10257	com.amazonaws.services.glue.PrepareLaunch	[main]	264	Creating directory /tmp/glue-job-6959303791097702753/aws_glue_connectors/marketplace
+"
+1760296170856,"INFO	2025-10-12T19:09:30,856	10372	com.amazonaws.services.glue.launch.helpers.ConnectionsManager	[main]	78	GLUE_CONNECTIVITY: attached connection types: ListBuffer()
+"
+1760296171184,"INFO	2025-10-12T19:09:31,183	10699	com.amazonaws.services.glue.PrepareLaunch	[main]	194	list of connectors to be added in classpath: List()
+"
+1760296171186,"INFO	2025-10-12T19:09:31,185	10701	com.amazonaws.services.glue.FileDownloader	[main]	95	downloading s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/scripts/raw_dq_load.py file to destination location: /tmp/glue-job-6959303791097702753/raw_dq_load.py
+"
+1760296171391,"INFO	2025-10-12T19:09:31,391	10907	com.amazonaws.services.glue.utils.AWSS3Utils$	[main]	32	Encoding S3 URI s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/scripts/raw_dq_load.py
+"
+1760296171392,"INFO	2025-10-12T19:09:31,391	10907	com.amazonaws.services.glue.utils.AWSS3Utils$	[main]	37	Encoded S3 URI to s3://entergy-govdatacore-dataeng-code-repo-dev/entergy-gov-data-core-code/scripts/raw_dq_load.py
+"
+1760296171401,"INFO	2025-10-12T19:09:31,401	10917	com.amazonaws.services.glue.FileDownloader	[main]	138	Download bucket: entergy-govdatacore-dataeng-code-repo-dev key: entergy-gov-data-core-code/scripts/raw_dq_load.py to /tmp/glue-job-6959303791097702753/raw_dq_load.py with usingProxy: false and isProxyDisabled: true
+"
+1760296172271,"INFO	2025-10-12T19:09:32,270	11786	com.amazonaws.services.glue.launch.helpers.FileManager	[main]	119	Script should be downloaded at /tmp/glue-job-6959303791097702753/raw_dq_load.py 
+"
+1760296172271,"INFO	2025-10-12T19:09:32,270	11786	com.amazonaws.services.glue.FileDownloader	[sdk-async-response-2-0]	145	Object downloaded. Details: GetObjectResponse(AcceptRanges=bytes, LastModified=2025-10-10T16:51:03Z, ContentLength=453, ETag=""3f516bac98ff6f23cf7791a839a72cc0"", ContentType=binary/octet-stream, ServerSideEncryption=AES256, Metadata={})
+"
+1760296179394,"INFO	2025-10-12T19:09:39,394	18910	com.amazonaws.services.glue.PythonModuleInstaller	[pool-5-thread-1]	176	Command to Execute unzip /tmp/glue-job-6959303791097702753/python/ufak9W-AWSGlueDataplanePython-5.0.704.py.zip -d /tmp/glue-job-6959303791097702753/python/ufak9W-AWSGlueDataplanePython-5.0.704
+"
+1760296179455,"INFO	2025-10-12T19:09:39,455	18971	com.amazonaws.services.glue.PythonModuleInstaller	[pool-5-thread-1]	176	Command to Execute /usr/bin/bash /tmp/glue-job-6959303791097702753/pythonmodules/pythonmoduleinstaller.sh /tmp/glue_venv --no-index --no-deps /tmp/glue-job-6959303791097702753/python/ufak9W-AWSGlueDataplanePython-5.0.704/amzn_awsgluelibs-5.0.704-py3-none-any.whl
+"
+1760296183495,"INFO	2025-10-12T19:09:43,495	23011	com.amazonaws.services.glue.PythonModuleInstaller	[pool-5-thread-1]	176	Command to Execute unzip /tmp/glue-job-6959303791097702753/python/3CvvA4-AwsGlueMLLibs.py.zip -d /tmp/glue-job-6959303791097702753/python/3CvvA4-AwsGlueMLLibs
+"
+1760296183500,"INFO	2025-10-12T19:09:43,500	23016	com.amazonaws.services.glue.PythonModuleInstaller	[pool-5-thread-1]	176	Command to Execute /usr/bin/bash /tmp/glue-job-6959303791097702753/pythonmodules/pythonmoduleinstaller.sh /tmp/glue_venv --no-index --no-deps /tmp/glue-job-6959303791097702753/python/3CvvA4-AwsGlueMLLibs/amzn_awsgluemlpythonlibs-1.0-py3-none-any.whl
+"
+1760296192025,"INFO	2025-10-12T19:09:52,024	31540	com.amazonaws.services.glue.PythonModuleInstaller	[pool-5-thread-1]	176	Command to Execute /usr/bin/bash /tmp/glue-job-6959303791097702753/pythonmodules/createvenvzip.sh /tmp/glue_venv /tmp/glue-job-6959303791097702753_glue_venv.zip
+"
+1760296192201,"INFO	2025-10-12T19:09:52,201	31717	com.amazonaws.services.glue.utils.concurrent.PythonModuleTask	[pool-5-thread-1]	39	Setting Up Virtual Env and Application Python Modules has been completed in async mode
+"
+1760296192211,"INFO	2025-10-12T19:09:52,211	31727	com.amazonaws.services.glue.utils.concurrent.GlueConcurrentAsyncProcessingService	[main]	50	shutdownAsyncProcessing has been Started
+"
+1760296192212,"INFO	2025-10-12T19:09:52,212	31728	com.amazonaws.services.glue.utils.concurrent.GlueConcurrentAsyncProcessingService	[main]	76	shutdownAsyncProcessing has been completed
+"
+1760296192572,"Launching ...
+"
+1760296192574,"Sun Oct 12 19:09:52 UTC 2025
+"
+1760296194929,"INFO	2025-10-12T19:09:54,926	2196	com.amazonaws.services.glue.utils.EndpointConfig$	[main]	36	 STAGE is prod
+"
+1760296195229,"INFO	2025-10-12T19:09:55,228	2498	com.amazonaws.services.glue.utils.EndpointConfig$	[main]	90	Endpoints: {credentials_provider=com.amazonaws.auth.DefaultAWSCredentialsProviderChain, glue.endpoint=https://glue.us-gov-west-1.amazonaws.com, lakeformation.endpoint=https://lakeformation.us-gov-west-1.amazonaws.com, jes.endpoint=https://glue-jes.us-gov-west-1.amazonaws.com, region=us-gov-west-1}
+"
+1760296195405,"INFO	2025-10-12T19:09:55,405	2675	com.amazonaws.services.glue.SafeLogging	[main]	60	Initializing logging subsystem
+"
+1760296202755,"INFO	2025-10-12T19:10:02,755	10025	org.apache.spark.emr.EMRParamSideChannel	[Thread-7]	177	Setting FGAC mode to false
+"
+1760296202767,"INFO	2025-10-12T19:10:02,767	10037	org.apache.spark.SparkContext	[Thread-7]	60	Running Spark version 3.5.4-amzn-0
+"
+1760296202768,"INFO	2025-10-12T19:10:02,767	10037	org.apache.spark.SparkContext	[Thread-7]	60	OS info Linux, 5.10.240-238.966.amzn2.x86_64, amd64
+"
+1760296202768,"INFO	2025-10-12T19:10:02,768	10038	org.apache.spark.SparkContext	[Thread-7]	60	Java version 17.0.16
+"
+1760296202979,"INFO	2025-10-12T19:10:02,978	10248	org.apache.spark.resource.ResourceUtils	[Thread-7]	60	==============================================================
+"
+1760296202980,"INFO	2025-10-12T19:10:02,979	10249	org.apache.spark.resource.ResourceUtils	[Thread-7]	60	No custom resources configured for spark.driver.
+"
+1760296202980,"INFO	2025-10-12T19:10:02,980	10250	org.apache.spark.resource.ResourceUtils	[Thread-7]	60	==============================================================
+"
+1760296202981,"INFO	2025-10-12T19:10:02,981	10251	org.apache.spark.SparkContext	[Thread-7]	60	Submitted application: maximo_dq_relatedrecord
+"
+1760296203011,"INFO	2025-10-12T19:10:03,011	10281	org.apache.spark.resource.ResourceProfile	[Thread-7]	60	Default ResourceProfile created, executor resources: Map(executorType -> name: executorType, amount: 1, script: , vendor: , cores -> name: cores, amount: 2, script: , vendor: , memory -> name: memory, amount: 4096, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+"
+1760296203019,"INFO	2025-10-12T19:10:03,019	10289	org.apache.spark.resource.ResourceProfile	[Thread-7]	60	Limiting resource is cpus at 2 tasks per executor
+"
+1760296203021,"INFO	2025-10-12T19:10:03,021	10291	org.apache.spark.resource.ResourceProfileManager	[Thread-7]	60	Added ResourceProfile id: 0
+"
+1760296203025,"INFO	2025-10-12T19:10:03,025	10295	org.apache.spark.resource.ResourceProfile	[Thread-7]	60	User executor ResourceProfile created, executor resources: Map(executorType -> name: executorType, amount: 1, script: , vendor: , cores -> name: cores, amount: 2, script: , vendor: , memory -> name: memory, amount: 4096, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+"
+1760296203026,"INFO	2025-10-12T19:10:03,025	10295	org.apache.spark.resource.ResourceProfile	[Thread-7]	60	Limiting resource is cpus at 2 tasks per executor
+"
+1760296203026,"INFO	2025-10-12T19:10:03,026	10296	org.apache.spark.resource.ResourceProfileManager	[Thread-7]	60	Added ResourceProfile id: 1
+"
+1760296203197,"INFO	2025-10-12T19:10:03,197	10467	org.apache.spark.SecurityManager	[Thread-7]	60	Changing view acls to: hadoop
+"
+1760296203198,"INFO	2025-10-12T19:10:03,197	10467	org.apache.spark.SecurityManager	[Thread-7]	60	Changing modify acls to: hadoop
+"
+1760296203198,"INFO	2025-10-12T19:10:03,198	10468	org.apache.spark.SecurityManager	[Thread-7]	60	Changing view acls groups to: 
+"
+1760296203199,"INFO	2025-10-12T19:10:03,198	10468	org.apache.spark.SecurityManager	[Thread-7]	60	Changing modify acls groups to: 
+"
+1760296203199,"INFO	2025-10-12T19:10:03,199	10469	org.apache.spark.SecurityManager	[Thread-7]	60	SecurityManager: authentication enabled; ui acls disabled; users with view permissions: hadoop; groups with view permissions: EMPTY; users with modify permissions: hadoop; groups with modify permissions: EMPTY
+"
+1760296203548,"INFO	2025-10-12T19:10:03,548	10818	org.apache.spark.util.Utils	[Thread-7]	60	Successfully started service 'sparkDriver' on port 34335.
+"
+1760296203601,"INFO	2025-10-12T19:10:03,600	10870	org.apache.spark.SparkEnv	[Thread-7]	60	Registering MapOutputTracker
+"
+1760296203648,"INFO	2025-10-12T19:10:03,647	10917	org.apache.spark.SparkEnv	[Thread-7]	60	Registering BlockManagerMaster
+"
+1760296203677,"INFO	2025-10-12T19:10:03,676	10946	org.apache.spark.storage.BlockManagerMasterEndpoint	[Thread-7]	60	Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+"
+1760296203678,"INFO	2025-10-12T19:10:03,677	10947	org.apache.spark.storage.BlockManagerMasterEndpoint	[Thread-7]	60	BlockManagerMasterEndpoint up
+"
+1760296203683,"INFO	2025-10-12T19:10:03,682	10952	org.apache.spark.SparkEnv	[Thread-7]	60	Registering BlockManagerMasterHeartbeat
+"
+1760296203707,"INFO	2025-10-12T19:10:03,707	10977	org.apache.spark.storage.DiskBlockManager	[Thread-7]	60	Created local directory at /tmp/blockmgr-f8c7f80d-5672-4858-b3d3-3d2707aef044
+"
+1760296203723,"INFO	2025-10-12T19:10:03,722	10992	org.apache.spark.storage.memory.MemoryStore	[Thread-7]	60	MemoryStore started with capacity 5.8 GiB
+"
+1760296203738,"INFO	2025-10-12T19:10:03,737	11007	org.apache.spark.SparkEnv	[Thread-7]	60	Registering OutputCommitCoordinator
+"
+1760296203742,"INFO	2025-10-12T19:10:03,742	11012	org.apache.spark.subresultcache.SubResultCacheManager	[Thread-7]	60	Sub-result caches are disabled.
+"
+1760296203818,"INFO	2025-10-12T19:10:03,817	11087	org.apache.spark.SparkContext	[Thread-7]	60	Added JAR /tmp/glue-job-6959303791097702753/jars/odvJng-aws-glue-di-package-5.0.704.jar at spark://172.34.33.234:34335/jars/odvJng-aws-glue-di-package-5.0.704.jar with timestamp 1760296202757
+"
+1760296203819,"INFO	2025-10-12T19:10:03,819	11089	org.apache.spark.SparkContext	[Thread-7]	60	Added JAR /tmp/glue-job-6959303791097702753/jars/dj5xOe-AwsGlueMLLibs.jar at spark://172.34.33.234:34335/jars/dj5xOe-AwsGlueMLLibs.jar with timestamp 1760296202757
+"
+1760296203973,"INFO	2025-10-12T19:10:03,972	11242	org.apache.spark.SparkContext	[Thread-7]	60	Added file /tmp/glue-job-6959303791097702753/extra-py-files/mosaic.zip at spark://172.34.33.234:34335/files/mosaic.zip with timestamp 1760296202757
+"
+1760296203974,"INFO	2025-10-12T19:10:03,974	11244	org.apache.spark.util.Utils	[Thread-7]	60	Copying /tmp/glue-job-6959303791097702753/extra-py-files/mosaic.zip to /tmp/spark-785c78cd-2c2c-4662-9238-bb830d681dae/userFiles-f07ec01e-e260-4326-85e2-030dd51df8a4/mosaic.zip
+"
+1760296203986,"INFO	2025-10-12T19:10:03,986	11256	org.apache.spark.SparkContext	[Thread-7]	60	Added file /tmp/glue-job-6959303791097702753/extra-py-files/yaml.zip at spark://172.34.33.234:34335/files/yaml.zip with timestamp 1760296202757
+"
+1760296203987,"INFO	2025-10-12T19:10:03,986	11256	org.apache.spark.util.Utils	[Thread-7]	60	Copying /tmp/glue-job-6959303791097702753/extra-py-files/yaml.zip to /tmp/spark-785c78cd-2c2c-4662-9238-bb830d681dae/userFiles-f07ec01e-e260-4326-85e2-030dd51df8a4/yaml.zip
+"
+1760296203992,"INFO	2025-10-12T19:10:03,991	11261	org.apache.spark.SparkContext	[Thread-7]	60	Added file /tmp/glue-job-6959303791097702753/extra-py-files/sqlglot.zip at spark://172.34.33.234:34335/files/sqlglot.zip with timestamp 1760296202757
+"
+1760296203992,"INFO	2025-10-12T19:10:03,992	11262	org.apache.spark.util.Utils	[Thread-7]	60	Copying /tmp/glue-job-6959303791097702753/extra-py-files/sqlglot.zip to /tmp/spark-785c78cd-2c2c-4662-9238-bb830d681dae/userFiles-f07ec01e-e260-4326-85e2-030dd51df8a4/sqlglot.zip
+"
+1760296204137,"INFO	2025-10-12T19:10:04,137	11407	org.apache.spark.SparkContext	[Thread-7]	60	Added archive /tmp/glue-job-6959303791097702753_glue_venv.zip#python_environment at spark://172.34.33.234:34335/files/glue-job-6959303791097702753_glue_venv.zip with timestamp 1760296202757
+"
+1760296204138,"INFO	2025-10-12T19:10:04,137	11407	org.apache.spark.util.Utils	[Thread-7]	60	Copying /tmp/glue-job-6959303791097702753_glue_venv.zip to /tmp/spark-d829ff7e-d6c3-438d-8ce1-934d61b2aa96/glue-job-6959303791097702753_glue_venv.zip
+"
+1760296204152,"INFO	2025-10-12T19:10:04,151	11421	org.apache.spark.SparkContext	[Thread-7]	60	Unpacking an archive /tmp/glue-job-6959303791097702753_glue_venv.zip#python_environment from /tmp/spark-d829ff7e-d6c3-438d-8ce1-934d61b2aa96/glue-job-6959303791097702753_glue_venv.zip to /tmp/spark-785c78cd-2c2c-4662-9238-bb830d681dae/userFiles-f07ec01e-e260-4326-85e2-030dd51df8a4/python_environment
+"
+1760296204748,"INFO	2025-10-12T19:10:04,748	12018	org.apache.spark.scheduler.cluster.glue.JESClusterManager	[Thread-7]	121	Python path for executors: mosaic.zip:yaml.zip:sqlglot.zip:python_environment
+"
+1760296204751,"INFO	2025-10-12T19:10:04,750	12020	org.apache.spark.deploy.glue.client.GlueRMClientFactory	[Thread-7]	60	JESClusterManager: Initializing JES client with endpoint: https://glue-jes.us-gov-west-1.amazonaws.com
+"
+1760296205642,"INFO	2025-10-12T19:10:05,642	12912	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	JESSchedulerBackend
+"
+1760296205645,"INFO	2025-10-12T19:10:05,645	12915	org.apache.spark.util.Utils	[Thread-7]	60	Using initial executors = 1, max of spark.dynamicAllocation.initialExecutors, spark.dynamicAllocation.minExecutors and spark.executor.instances
+"
+1760296205688,"INFO	2025-10-12T19:10:05,687	12957	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	Starting JES Scheduler Backend.
+"
+1760296205689,"INFO	2025-10-12T19:10:05,689	12959	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	Set total expected executors: rpId: 0, numExecs: 1
+"
+1760296205690,"INFO	2025-10-12T19:10:05,689	12959	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	Initial executors are 1
+"
+1760296205700,"INFO	2025-10-12T19:10:05,699	12969	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296205702,"INFO	2025-10-12T19:10:05,702	12972	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 1, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296205704,"INFO	2025-10-12T19:10:05,703	12973	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 1; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_1_a_spark-application-1760296205636_p_1
+"
+1760296205719,"INFO	2025-10-12T19:10:05,718	12988	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296205720,"INFO	2025-10-12T19:10:05,719	12989	org.apache.spark.util.Utils	[Thread-7]	60	Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43981.
+"
+1760296205720,"INFO	2025-10-12T19:10:05,720	12990	org.apache.spark.network.netty.NettyBlockTransferService	[Thread-7]	88	Server created on 172.34.33.234:43981
+"
+1760296205725,"INFO	2025-10-12T19:10:05,724	12994	org.apache.spark.storage.BlockManager	[Thread-7]	60	Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+"
+1760296205735,"INFO	2025-10-12T19:10:05,735	13005	org.apache.spark.storage.BlockManagerMaster	[Thread-7]	60	Registering BlockManager BlockManagerId(driver, 172.34.33.234, 43981, None)
+"
+1760296205740,"INFO	2025-10-12T19:10:05,739	13009	org.apache.spark.storage.BlockManagerMasterEndpoint	[dispatcher-BlockManagerMaster]	60	Registering block manager 172.34.33.234:43981 with 5.8 GiB RAM, BlockManagerId(driver, 172.34.33.234, 43981, None)
+"
+1760296205744,"INFO	2025-10-12T19:10:05,744	13014	org.apache.spark.storage.BlockManagerMaster	[Thread-7]	60	Registered BlockManager BlockManagerId(driver, 172.34.33.234, 43981, None)
+"
+1760296205745,"INFO	2025-10-12T19:10:05,745	13015	org.apache.spark.storage.BlockManager	[Thread-7]	60	Initialized BlockManager: BlockManagerId(driver, 172.34.33.234, 43981, None)
+"
+1760296205933,"INFO	2025-10-12T19:10:05,933	13203	org.apache.spark.deploy.history.SingleEventLogFileWriter	[Thread-7]	60	Logging events to file:/var/log/spark/apps/spark-application-1760296205636.inprogress
+"
+1760296206094,"INFO	2025-10-12T19:10:06,093	13363	org.apache.spark.util.Utils	[Thread-7]	60	Using initial executors = 1, max of spark.dynamicAllocation.initialExecutors, spark.dynamicAllocation.minExecutors and spark.executor.instances
+"
+1760296206100,"INFO	2025-10-12T19:10:06,099	13369	org.apache.spark.ExecutorAllocationManager	[Thread-7]	60	Dynamic allocation is enabled without a shuffle service.
+"
+1760296206122,"INFO	2025-10-12T19:10:06,121	13391	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	Set total expected executors: rpId: 0, numExecs: 1
+"
+1760296206123,"INFO	2025-10-12T19:10:06,122	13392	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	Requested total executors are 1
+"
+1760296206184,"INFO	2025-10-12T19:10:06,183	13453	com.amazonaws.services.glueexceptionanalysis.EventLogFileWriter	[Thread-7]	51	Started file writer for com.amazonaws.services.glueexceptionanalysis.EventLogFileWriter
+"
+1760296206195,"INFO	2025-10-12T19:10:06,194	13464	org.apache.spark.SparkContext	[Thread-7]	60	Registered listener com.amazonaws.services.glueexceptionanalysis.GlueExceptionAnalysisListener
+"
+1760296206231,"INFO	2025-10-12T19:10:06,230	13500	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	getDriverLogUrls Map()
+"
+1760296206236,"INFO	2025-10-12T19:10:06,235	13505	org.apache.spark.executor.ExecutorLogUrlHandler	[Thread-7]	60	Fail to renew executor log urls: some of required attributes are missing in app's event log.. Required: Set(CONTAINER_ID) / available: Set(). Falling back to show app's original log urls.
+"
+1760296206243,"INFO	2025-10-12T19:10:06,243	13513	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[Thread-7]	60	SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+"
+1760296206639,"INFO	2025-10-12T19:10:06,639	13909	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	createChildTask API response code 200
+"
+1760296206640,"INFO	2025-10-12T19:10:06,640	13910	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task g-d5d02bd2709d7d6fe0ba9b6680597d5427ab97e1 created for executor 1 in resource profile 0
+"
+1760296208088,"INFO	2025-10-12T19:10:08,088	15358	org.apache.spark.sql.internal.SharedState	[Thread-7]	60	Setting hive.metastore.warehouse.dir ('/tmp/spark-warehouse') to the value of spark.sql.warehouse.dir.
+"
+1760296208092,"INFO	2025-10-12T19:10:08,091	15361	org.apache.spark.sql.internal.SharedState	[Thread-7]	60	Warehouse path is 'file:/home/hadoop/spark-warehouse'.
+"
+1760296211889,"INFO	2025-10-12T19:10:11,888	19158	org.apache.iceberg.CatalogUtil	[Thread-7]	354	Loading custom FileIO implementation: org.apache.iceberg.aws.s3.S3FileIO
+"
+1760296212864,"WARN	2025-10-12T19:10:12,864	20134	software.amazon.glue.GlueCatalogSessionExtensions	[Thread-7]	174	Fail to load catalog v1/catalogs/:: Forbidden: 331875467123 is not allowlisted to call GetCatalogExtension
+"
+1760296212865,"INFO	2025-10-12T19:10:12,864	20134	software.amazon.glue.GlueUtil	[Thread-7]	264	Not use extensions: no catalog info
+"
+1760296212982,"INFO	2025-10-12T19:10:12,982	20252	org.apache.iceberg.BaseMetastoreTableOperations	[Thread-7]	189	Refreshing table metadata from new version: s3://entergy-govdatacore-raw-dev/maximo_raw.db/relatedrecord/metadata/00015-63c6f6fb-a679-4719-bedf-6f49d321e336.metadata.json
+"
+1760296213407,"INFO	2025-10-12T19:10:13,407	20677	org.apache.iceberg.aws.glue.GlueCatalog	[Thread-7]	855	Table loaded by catalog: glue_catalog.maximo_raw.relatedrecord
+"
+1760296213429,"INFO	2025-10-12T19:10:13,429	20699	org.apache.iceberg.spark.source.SparkTable	[Thread-7]	206	Table glue_catalog.maximo_raw.relatedrecord loaded Spark schema: StructType(StructField(recordkey,StringType,true),StructField(class,StringType,true),StructField(relatedreckey,StringType,true),StructField(relatedrecclass,StringType,true),StructField(relatedrecsiteid,StringType,true),StructField(relatedrecorgid,StringType,true),StructField(siteid,StringType,true),StructField(orgid,StringType,true),StructField(relatetype,StringType,true),StructField(relatedrecordid,DecimalType(38,10),true),StructField(rowstamp,StringType,true),StructField(plusrelatestatus,StringType,true),StructField(pluscacontrol,DecimalType(38,10),true),StructField(etrcrrelatetype,StringType,true),StructField(etrecapprreq,DecimalType(38,10),true),StructField(etrecwoclose,DecimalType(38,10),true),StructField(etrrelatetype,StringType,true),StructField(etrpmttask,StringType,true),StructField(pk_hash,StringType,true),StructField(edl_load_date,TimestampType,true))
+"
+1760296214155,"INFO	2025-10-12T19:10:14,155	21425	org.apache.iceberg.CatalogUtil	[Thread-7]	354	Loading custom FileIO implementation: org.apache.iceberg.aws.s3.S3FileIO
+"
+1760296214269,"WARN	2025-10-12T19:10:14,269	21539	software.amazon.glue.GlueCatalogSessionExtensions	[Thread-7]	174	Fail to load catalog v1/catalogs/:: Forbidden: 331875467123 is not allowlisted to call GetCatalogExtension
+"
+1760296214270,"INFO	2025-10-12T19:10:14,269	21539	software.amazon.glue.GlueUtil	[Thread-7]	264	Not use extensions: no catalog info
+"
+1760296214333,"INFO	2025-10-12T19:10:14,333	21603	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend$JESAsSchedulerBackendEndpoint	[dispatcher-CoarseGrainedScheduler]	60	Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.34.28.133:57430) with ID 1,  ResourceProfileId 0
+"
+1760296214336,"INFO	2025-10-12T19:10:14,335	21605	org.apache.spark.executor.ExecutorLogUrlHandler	[dispatcher-CoarseGrainedScheduler]	60	Fail to renew executor log urls: some of required attributes are missing in app's event log.. Required: Set(CONTAINER_ID) / available: Set(). Falling back to show app's original log urls.
+"
+1760296214337,"INFO	2025-10-12T19:10:14,337	21607	org.apache.spark.scheduler.cluster.glue.ExecutorEventListener	[spark-listener-group-shared]	60	Got executor added event for 1 @ 1760296214336
+"
+1760296214341,"INFO	2025-10-12T19:10:14,341	21611	org.apache.spark.scheduler.dynalloc.ExecutorMonitor	[spark-listener-group-executorManagement]	60	New executor 1 has registered (new total is 1)
+"
+1760296214341,"INFO	2025-10-12T19:10:14,341	21611	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[spark-listener-group-shared]	60	connected executor 1
+"
+1760296214353,"INFO	2025-10-12T19:10:14,353	21623	org.apache.iceberg.BaseMetastoreTableOperations	[Thread-7]	189	Refreshing table metadata from new version: s3://entergy-govdatacore-dq-dev/maximo_dq.db/relatedrecord/metadata/00012-b4d1c377-ce61-4c8f-88a0-fbb7ab87f440.metadata.json
+"
+1760296214457,"INFO	2025-10-12T19:10:14,456	21726	org.apache.iceberg.aws.glue.GlueCatalog	[Thread-7]	855	Table loaded by catalog: glue_catalog.maximo_dq.relatedrecord
+"
+1760296214460,"INFO	2025-10-12T19:10:14,459	21729	org.apache.iceberg.spark.source.SparkTable	[Thread-7]	206	Table glue_catalog.maximo_dq.relatedrecord loaded Spark schema: StructType(StructField(recordkey,StringType,true),StructField(class,StringType,true),StructField(relatedreckey,StringType,true),StructField(relatedrecclass,StringType,true),StructField(relatedrecsiteid,StringType,true),StructField(relatedrecorgid,StringType,true),StructField(siteid,StringType,true),StructField(orgid,StringType,true),StructField(relatetype,StringType,true),StructField(relatedrecordid,DecimalType(38,10),true),StructField(rowstamp,StringType,true),StructField(plusrelatestatus,StringType,true),StructField(pluscacontrol,DecimalType(38,10),true),StructField(etrcrrelatetype,StringType,true),StructField(etrecapprreq,DecimalType(38,10),true),StructField(etrecwoclose,DecimalType(38,10),true),StructField(etrrelatetype,StringType,true),StructField(etrpmttask,StringType,true),StructField(pk_hash,StringType,true),StructField(edl_load_date,TimestampType,true))
+"
+1760296214501,"INFO	2025-10-12T19:10:14,501	21771	org.apache.spark.storage.BlockManagerMasterEndpoint	[dispatcher-BlockManagerMaster]	60	Registering block manager 172.34.28.133:45661 with 5.8 GiB RAM, BlockManagerId(1, 172.34.28.133, 45661, None)
+"
+1760296216575,"INFO	2025-10-12T19:10:16,574	23844	org.opensearch.hadoop.util.Version	[Thread-7]	143	OpenSearch Hadoop v1.2.0 [2a4148055f]
+"
+1760296217060,"INFO	2025-10-12T19:10:17,059	24329	org.apache.iceberg.spark.source.SparkTable	[Thread-7]	206	Table glue_catalog.maximo_dq.relatedrecord loaded Spark schema: StructType(StructField(recordkey,StringType,true),StructField(class,StringType,true),StructField(relatedreckey,StringType,true),StructField(relatedrecclass,StringType,true),StructField(relatedrecsiteid,StringType,true),StructField(relatedrecorgid,StringType,true),StructField(siteid,StringType,true),StructField(orgid,StringType,true),StructField(relatetype,StringType,true),StructField(relatedrecordid,DecimalType(38,10),true),StructField(rowstamp,StringType,true),StructField(plusrelatestatus,StringType,true),StructField(pluscacontrol,DecimalType(38,10),true),StructField(etrcrrelatetype,StringType,true),StructField(etrecapprreq,DecimalType(38,10),true),StructField(etrecwoclose,DecimalType(38,10),true),StructField(etrrelatetype,StringType,true),StructField(etrpmttask,StringType,true),StructField(pk_hash,StringType,true),StructField(edl_load_date,TimestampType,true))
+"
+1760296217564,"INFO	2025-10-12T19:10:17,564	24834	org.apache.spark.sql.execution.datasources.v2.V2ScanRelationPushDown	[Thread-7]	60	
+Output: recordkey#0, class#1, relatedreckey#2, relatedrecclass#3, relatedrecsiteid#4, relatedrecorgid#5, siteid#6, orgid#7, relatetype#8, relatedrecordid#9, rowstamp#10, plusrelatestatus#11, pluscacontrol#12, etrcrrelatetype#13, etrecapprreq#14, etrecwoclose#15, etrrelatetype#16, etrpmttask#17, pk_hash#18, edl_load_date#19
+        
+"
+1760296217573,"INFO	2025-10-12T19:10:17,572	24842	org.apache.iceberg.SnapshotScan	[Thread-7]	124	Scanning table glue_catalog.maximo_raw.relatedrecord snapshot 3779443845899496993 created at 2025-10-12T18:54:47.380+00:00 with filter true
+"
+1760296217869,"INFO	2025-10-12T19:10:17,868	25138	org.apache.iceberg.BaseDistributedDataScan	[Thread-7]	278	Planning file tasks locally for table glue_catalog.maximo_raw.relatedrecord
+"
+1760296218121,"INFO	2025-10-12T19:10:18,121	25391	org.apache.iceberg.spark.source.SparkPartitioningAwareScan	[Thread-7]	119	Reporting UnknownPartitioning with 32 partition(s) for table glue_catalog.maximo_raw.relatedrecord
+"
+1760296218156,"INFO	2025-10-12T19:10:18,156	25426	org.apache.iceberg.spark.source.SparkWrite	[Thread-7]	157	Requesting 0 bytes advisory partition size for table glue_catalog.maximo_dq.relatedrecord
+"
+1760296218156,"INFO	2025-10-12T19:10:18,156	25426	org.apache.iceberg.spark.source.SparkWrite	[Thread-7]	138	Requesting UnspecifiedDistribution as write distribution for table glue_catalog.maximo_dq.relatedrecord
+"
+1760296218158,"INFO	2025-10-12T19:10:18,158	25428	org.apache.iceberg.spark.source.SparkWrite	[Thread-7]	150	Requesting [] as write ordering for table glue_catalog.maximo_dq.relatedrecord
+"
+1760296218451,"INFO	2025-10-12T19:10:18,451	25721	software.amazon.glue.spark.redshift.pushdown.RedshiftStrategy	[Thread-7]	49	No redshift relations, skip push down
+"
+1760296218473,"INFO	2025-10-12T19:10:18,473	25743	software.amazon.glue.spark.redshift.pushdown.RedshiftStrategy	[Thread-7]	49	No redshift relations, skip push down
+"
+1760296218478,"INFO	2025-10-12T19:10:18,477	25747	software.amazon.glue.spark.redshift.pushdown.RedshiftStrategy	[Thread-7]	49	No redshift relations, skip push down
+"
+1760296218491,"INFO	2025-10-12T19:10:18,491	25761	software.amazon.glue.spark.redshift.pushdown.RedshiftStrategy	[Thread-7]	49	No redshift relations, skip push down
+"
+1760296218498,"INFO	2025-10-12T19:10:18,498	25768	software.amazon.glue.spark.redshift.pushdown.RedshiftStrategy	[Thread-7]	49	No redshift relations, skip push down
+"
+1760296218503,"INFO	2025-10-12T19:10:18,503	25773	software.amazon.glue.spark.redshift.pushdown.RedshiftStrategy	[Thread-7]	49	No redshift relations, skip push down
+"
+1760296218505,"INFO	2025-10-12T19:10:18,505	25775	software.amazon.glue.spark.redshift.pushdown.RedshiftStrategy	[Thread-7]	49	No redshift relations, skip push down
+"
+1760296218560,"INFO	2025-10-12T19:10:18,560	25830	org.apache.spark.storage.memory.MemoryStore	[Thread-7]	60	Block broadcast_0 stored as values in memory (estimated size 32.0 KiB, free 5.8 GiB)
+"
+1760296218706,"INFO	2025-10-12T19:10:18,706	25976	org.apache.spark.storage.memory.MemoryStore	[Thread-7]	60	Block broadcast_0_piece0 stored as bytes in memory (estimated size 3.4 KiB, actual size: 3.4 KiB, free 5.8 GiB)
+"
+1760296218709,"INFO	2025-10-12T19:10:18,709	25979	org.apache.spark.storage.BlockManagerInfo	[dispatcher-BlockManagerMaster]	60	Added broadcast_0_piece0 in memory on 172.34.33.234:43981 (size: 3.4 KiB, free: 5.8 GiB)
+"
+1760296218715,"INFO	2025-10-12T19:10:18,715	25985	org.apache.spark.SparkContext	[Thread-7]	60	Created broadcast 0 from broadcast at SparkBatch.java:85
+"
+1760296219077,"INFO	2025-10-12T19:10:19,077	26347	org.apache.spark.storage.memory.MemoryStore	[Thread-7]	60	Block broadcast_1 stored as values in memory (estimated size 32.0 KiB, free 5.8 GiB)
+"
+1760296219089,"INFO	2025-10-12T19:10:19,089	26359	org.apache.spark.storage.memory.MemoryStore	[Thread-7]	60	Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.4 KiB, actual size: 3.4 KiB, free 5.8 GiB)
+"
+1760296219090,"INFO	2025-10-12T19:10:19,089	26359	org.apache.spark.storage.BlockManagerInfo	[dispatcher-BlockManagerMaster]	60	Added broadcast_1_piece0 in memory on 172.34.33.234:43981 (size: 3.4 KiB, free: 5.8 GiB)
+"
+1760296219091,"INFO	2025-10-12T19:10:19,091	26361	org.apache.spark.SparkContext	[Thread-7]	60	Created broadcast 1 from broadcast at SparkBatch.java:85
+"
+1760296219309,"INFO	2025-10-12T19:10:19,309	26579	org.apache.spark.scheduler.DAGScheduler	[dag-scheduler-event-loop]	60	Registering RDD 5 (save at NativeMethodAccessorImpl.java:0) as input to shuffle 0
+"
+1760296219314,"INFO	2025-10-12T19:10:19,314	26584	org.apache.spark.scheduler.DAGScheduler	[dag-scheduler-event-loop]	60	Got map stage job 0 (save at NativeMethodAccessorImpl.java:0) with 32 output partitions
+"
+1760296219314,"INFO	2025-10-12T19:10:19,314	26584	org.apache.spark.scheduler.DAGScheduler	[dag-scheduler-event-loop]	60	Final stage: ShuffleMapStage 0 (save at NativeMethodAccessorImpl.java:0)
+"
+1760296219315,"INFO	2025-10-12T19:10:19,315	26585	org.apache.spark.scheduler.DAGScheduler	[dag-scheduler-event-loop]	60	Parents of final stage: List()
+"
+1760296219316,"INFO	2025-10-12T19:10:19,316	26586	org.apache.spark.scheduler.DAGScheduler	[dag-scheduler-event-loop]	60	Missing parents: List()
+"
+1760296219320,"INFO	2025-10-12T19:10:19,319	26589	org.apache.spark.scheduler.DAGScheduler	[dag-scheduler-event-loop]	60	Submitting ShuffleMapStage 0 (MapPartitionsRDD[5] at save at NativeMethodAccessorImpl.java:0), which has no missing parents
+"
+1760296219462,"INFO	2025-10-12T19:10:19,462	26732	org.apache.spark.storage.memory.MemoryStore	[dag-scheduler-event-loop]	60	Block broadcast_2 stored as values in memory (estimated size 30.4 KiB, free 5.8 GiB)
+"
+1760296219487,"INFO	2025-10-12T19:10:19,486	26756	org.apache.spark.storage.memory.MemoryStore	[dag-scheduler-event-loop]	60	Block broadcast_2_piece0 stored as bytes in memory (estimated size 13.4 KiB, actual size: 13.4 KiB, free 5.8 GiB)
+"
+1760296219488,"INFO	2025-10-12T19:10:19,487	26757	org.apache.spark.storage.BlockManagerInfo	[dispatcher-BlockManagerMaster]	60	Added broadcast_2_piece0 in memory on 172.34.33.234:43981 (size: 13.4 KiB, free: 5.8 GiB)
+"
+1760296219490,"INFO	2025-10-12T19:10:19,489	26759	org.apache.spark.SparkContext	[dag-scheduler-event-loop]	60	Created broadcast 2 from broadcast at DAGScheduler.scala:1664
+"
+1760296219516,"INFO	2025-10-12T19:10:19,514	26784	org.apache.spark.scheduler.DAGScheduler	[dag-scheduler-event-loop]	60	Submitting 32 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[5] at save at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+"
+1760296219519,"INFO	2025-10-12T19:10:19,519	26789	org.apache.spark.scheduler.TaskSchedulerImpl	[dag-scheduler-event-loop]	60	Adding task set 0.0 with 32 tasks resource profile 0
+"
+1760296219566,"INFO	2025-10-12T19:10:19,566	26836	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 0.0 in stage 0.0 (TID 0) (172.34.28.133, executor 1, partition 0, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296219571,"INFO	2025-10-12T19:10:19,571	26841	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 1.0 in stage 0.0 (TID 1) (172.34.28.133, executor 1, partition 1, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296220514,"INFO	2025-10-12T19:10:20,514	27784	org.apache.spark.storage.BlockManagerInfo	[dispatcher-BlockManagerMaster]	60	Added broadcast_2_piece0 in memory on 172.34.28.133:45661 (size: 13.4 KiB, free: 5.8 GiB)
+"
+1760296222665,"INFO	2025-10-12T19:10:22,664	29934	org.apache.spark.storage.BlockManagerInfo	[dispatcher-BlockManagerMaster]	60	Added broadcast_1_piece0 in memory on 172.34.28.133:45661 (size: 3.4 KiB, free: 5.8 GiB)
+"
+1760296243542,"INFO	2025-10-12T19:10:43,537	50807	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 2.0 in stage 0.0 (TID 2) (172.34.28.133, executor 1, partition 2, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296243549,"INFO	2025-10-12T19:10:43,548	50818	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 0.0 in stage 0.0 (TID 0) in 24013 ms on 172.34.28.133 (executor 1) (1/32)
+"
+1760296243565,"INFO	2025-10-12T19:10:43,565	50835	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 3.0 in stage 0.0 (TID 3) (172.34.28.133, executor 1, partition 3, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296243567,"INFO	2025-10-12T19:10:43,567	50837	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 1.0 in stage 0.0 (TID 1) in 23997 ms on 172.34.28.133 (executor 1) (2/32)
+"
+1760296249416,"INFO	2025-10-12T19:10:49,416	56686	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 2
+"
+1760296249417,"INFO	2025-10-12T19:10:49,416	56686	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 2
+"
+1760296249418,"INFO	2025-10-12T19:10:49,418	56688	org.apache.spark.ExecutorAllocationManager	[spark-dynamic-executor-allocation]	60	Requesting 1 new executor because tasks are backlogged (new desired total will be 2 for resource profile id: 0)
+"
+1760296249649,"INFO	2025-10-12T19:10:49,649	56919	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296249650,"INFO	2025-10-12T19:10:49,649	56919	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 2, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296249650,"INFO	2025-10-12T19:10:49,650	56920	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 2; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_2_a_spark-application-1760296205636_p_1
+"
+1760296249650,"INFO	2025-10-12T19:10:49,650	56920	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296249699,"INFO	2025-10-12T19:10:49,699	56969	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296249701,"INFO	2025-10-12T19:10:49,701	56971	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: a3cca326-dc1a-43d2-b4a0-92bd4f5ec7f8)
+"
+1760296249702,"INFO	2025-10-12T19:10:49,701	56971	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 2 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296252628,"INFO	2025-10-12T19:10:52,628	59898	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296252629,"INFO	2025-10-12T19:10:52,629	59899	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 3, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296252629,"INFO	2025-10-12T19:10:52,629	59899	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 3; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_3_a_spark-application-1760296205636_p_1
+"
+1760296252629,"INFO	2025-10-12T19:10:52,629	59899	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296252674,"INFO	2025-10-12T19:10:52,674	59944	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296252674,"INFO	2025-10-12T19:10:52,674	59944	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: c9593e76-9505-4f51-8d4e-9f03adcd37c4)
+"
+1760296252674,"INFO	2025-10-12T19:10:52,674	59944	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 3 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296256324,"INFO	2025-10-12T19:10:56,322	63592	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 4.0 in stage 0.0 (TID 4) (172.34.28.133, executor 1, partition 4, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296256324,"INFO	2025-10-12T19:10:56,323	63593	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-2]	60	Finished task 2.0 in stage 0.0 (TID 2) in 12788 ms on 172.34.28.133 (executor 1) (3/32)
+"
+1760296256432,"INFO	2025-10-12T19:10:56,432	63702	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 5.0 in stage 0.0 (TID 5) (172.34.28.133, executor 1, partition 5, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296256435,"INFO	2025-10-12T19:10:56,435	63705	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-3]	60	Finished task 3.0 in stage 0.0 (TID 3) in 12871 ms on 172.34.28.133 (executor 1) (4/32)
+"
+1760296259436,"INFO	2025-10-12T19:10:59,436	66706	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 4
+"
+1760296259436,"INFO	2025-10-12T19:10:59,436	66706	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 4
+"
+1760296259436,"INFO	2025-10-12T19:10:59,436	66706	org.apache.spark.ExecutorAllocationManager	[spark-dynamic-executor-allocation]	60	Requesting 2 new executors because tasks are backlogged (new desired total will be 4 for resource profile id: 0)
+"
+1760296261682,"INFO	2025-10-12T19:11:01,682	68952	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296261682,"INFO	2025-10-12T19:11:01,682	68952	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 4, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296261683,"INFO	2025-10-12T19:11:01,682	68952	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 4; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_4_a_spark-application-1760296205636_p_1
+"
+1760296261683,"INFO	2025-10-12T19:11:01,683	68953	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296261725,"INFO	2025-10-12T19:11:01,724	68994	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296261725,"INFO	2025-10-12T19:11:01,725	68995	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: cb0d8eca-9cb3-40ff-9920-15fc383bdb6d)
+"
+1760296261725,"INFO	2025-10-12T19:11:01,725	68995	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 4 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296265691,"INFO	2025-10-12T19:11:05,690	72960	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorStatus-poller]	60	polling for JES executor task status
+"
+1760296265691,"INFO	2025-10-12T19:11:05,691	72961	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorStatus-poller]	60	polling for 1 executor task status
+"
+1760296268663,"INFO	2025-10-12T19:11:08,661	75931	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 6.0 in stage 0.0 (TID 6) (172.34.28.133, executor 1, partition 6, PROCESS_LOCAL, 16810 bytes) 
+INFO	2025-10-12T19:11:08,662	75932	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 4.0 in stage 0.0 (TID 4) in 12340 ms on 172.34.28.133 (executor 1) (5/32)
+"
+1760296268896,"INFO	2025-10-12T19:11:08,895	76165	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 7.0 in stage 0.0 (TID 7) (172.34.28.133, executor 1, partition 7, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296268897,"INFO	2025-10-12T19:11:08,896	76166	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 5.0 in stage 0.0 (TID 5) in 12465 ms on 172.34.28.133 (executor 1) (6/32)
+"
+1760296269451,"INFO	2025-10-12T19:11:09,451	76721	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 7
+"
+1760296269452,"INFO	2025-10-12T19:11:09,451	76721	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 7
+"
+1760296269452,"INFO	2025-10-12T19:11:09,451	76721	org.apache.spark.ExecutorAllocationManager	[spark-dynamic-executor-allocation]	60	Requesting 3 new executors because tasks are backlogged (new desired total will be 7 for resource profile id: 0)
+"
+1760296272661,"INFO	2025-10-12T19:11:12,660	79930	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296272661,"INFO	2025-10-12T19:11:12,661	79931	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 5, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296272661,"INFO	2025-10-12T19:11:12,661	79931	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 5; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_5_a_spark-application-1760296205636_p_1
+"
+1760296272662,"INFO	2025-10-12T19:11:12,661	79931	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296272698,"INFO	2025-10-12T19:11:12,697	79967	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296272698,"INFO	2025-10-12T19:11:12,698	79968	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 48f59972-d91b-4b4b-973f-8d05d4a07609)
+"
+1760296272698,"INFO	2025-10-12T19:11:12,698	79968	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 5 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296281002,"INFO	2025-10-12T19:11:21,000	88270	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 8.0 in stage 0.0 (TID 8) (172.34.28.133, executor 1, partition 8, PROCESS_LOCAL, 16810 bytes) 
+INFO	2025-10-12T19:11:21,002	88272	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-2]	60	Finished task 6.0 in stage 0.0 (TID 6) in 12342 ms on 172.34.28.133 (executor 1) (7/32)
+"
+1760296281175,"INFO	2025-10-12T19:11:21,175	88445	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 9.0 in stage 0.0 (TID 9) (172.34.28.133, executor 1, partition 9, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296281177,"INFO	2025-10-12T19:11:21,177	88447	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-3]	60	Finished task 7.0 in stage 0.0 (TID 7) in 12283 ms on 172.34.28.133 (executor 1) (8/32)
+"
+1760296281269,"INFO	2025-10-12T19:11:21,269	88539	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 6
+"
+1760296281269,"INFO	2025-10-12T19:11:21,269	88539	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 6
+"
+1760296287073,"INFO	2025-10-12T19:11:27,072	94342	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296287073,"INFO	2025-10-12T19:11:27,073	94343	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 6, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296287073,"INFO	2025-10-12T19:11:27,073	94343	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 6; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_6_a_spark-application-1760296205636_p_1
+"
+1760296287074,"INFO	2025-10-12T19:11:27,073	94343	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296287113,"INFO	2025-10-12T19:11:27,113	94383	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296287113,"INFO	2025-10-12T19:11:27,113	94383	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 64eb47cc-792f-4abc-81d9-52af85d4036d)
+INFO	2025-10-12T19:11:27,113	94383	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 6 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296293401,"INFO	2025-10-12T19:11:33,400	100670	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 10.0 in stage 0.0 (TID 10) (172.34.28.133, executor 1, partition 10, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296293402,"INFO	2025-10-12T19:11:33,401	100671	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 8.0 in stage 0.0 (TID 8) in 12401 ms on 172.34.28.133 (executor 1) (9/32)
+"
+1760296293651,"INFO	2025-10-12T19:11:33,649	100919	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 11.0 in stage 0.0 (TID 11) (172.34.28.133, executor 1, partition 11, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296293651,"INFO	2025-10-12T19:11:33,650	100920	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 9.0 in stage 0.0 (TID 9) in 12476 ms on 172.34.28.133 (executor 1) (10/32)
+"
+1760296298148,"INFO	2025-10-12T19:11:38,148	105418	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296298149,"INFO	2025-10-12T19:11:38,148	105418	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 7, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296298149,"INFO	2025-10-12T19:11:38,149	105419	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 7; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_7_a_spark-application-1760296205636_p_1
+"
+1760296298149,"INFO	2025-10-12T19:11:38,149	105419	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296298185,"INFO	2025-10-12T19:11:38,185	105455	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296298185,"INFO	2025-10-12T19:11:38,185	105455	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 545a1cdc-040e-48a3-b722-401683650782)
+"
+1760296298186,"INFO	2025-10-12T19:11:38,185	105455	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 7 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296305692,"INFO	2025-10-12T19:11:45,691	112961	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 12.0 in stage 0.0 (TID 12) (172.34.28.133, executor 1, partition 12, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296305693,"INFO	2025-10-12T19:11:45,692	112962	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-2]	60	Finished task 10.0 in stage 0.0 (TID 10) in 12292 ms on 172.34.28.133 (executor 1) (11/32)
+"
+1760296305785,"INFO	2025-10-12T19:11:45,785	113055	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296305785,"INFO	2025-10-12T19:11:45,785	113055	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 8, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296305786,"INFO	2025-10-12T19:11:45,785	113055	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 8; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_8_a_spark-application-1760296205636_p_1
+"
+1760296305786,"INFO	2025-10-12T19:11:45,786	113056	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296305825,"INFO	2025-10-12T19:11:45,825	113095	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296305825,"INFO	2025-10-12T19:11:45,825	113095	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 1f2d2956-1e40-435c-9553-6162e066d165)
+"
+1760296305825,"INFO	2025-10-12T19:11:45,825	113095	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 8 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296306118,"INFO	2025-10-12T19:11:46,118	113388	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 13.0 in stage 0.0 (TID 13) (172.34.28.133, executor 1, partition 13, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296306119,"INFO	2025-10-12T19:11:46,119	113389	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-3]	60	Finished task 11.0 in stage 0.0 (TID 11) in 12471 ms on 172.34.28.133 (executor 1) (12/32)
+"
+1760296306208,"INFO	2025-10-12T19:11:46,207	113477	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 5
+"
+1760296306208,"INFO	2025-10-12T19:11:46,208	113478	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 5
+"
+1760296312576,"INFO	2025-10-12T19:11:52,575	119845	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296312576,"INFO	2025-10-12T19:11:52,576	119846	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 9, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296312576,"INFO	2025-10-12T19:11:52,576	119846	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 9; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_9_a_spark-application-1760296205636_p_1
+"
+1760296312577,"INFO	2025-10-12T19:11:52,576	119846	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296312618,"INFO	2025-10-12T19:11:52,618	119888	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296312618,"INFO	2025-10-12T19:11:52,618	119888	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: cec29da7-68b8-4ad4-bfed-54af0f877f64)
+"
+1760296312618,"INFO	2025-10-12T19:11:52,618	119888	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 9 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296317947,"INFO	2025-10-12T19:11:57,946	125216	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 14.0 in stage 0.0 (TID 14) (172.34.28.133, executor 1, partition 14, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296317948,"INFO	2025-10-12T19:11:57,948	125218	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 12.0 in stage 0.0 (TID 12) in 12258 ms on 172.34.28.133 (executor 1) (13/32)
+"
+1760296318345,"INFO	2025-10-12T19:11:58,344	125614	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 15.0 in stage 0.0 (TID 15) (172.34.28.133, executor 1, partition 15, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296318346,"INFO	2025-10-12T19:11:58,345	125615	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 13.0 in stage 0.0 (TID 13) in 12228 ms on 172.34.28.133 (executor 1) (14/32)
+"
+1760296325694,"INFO	2025-10-12T19:12:05,694	132964	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorStatus-poller]	60	polling for JES executor task status
+"
+1760296325698,"INFO	2025-10-12T19:12:05,694	132964	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorStatus-poller]	60	polling for 1 executor task status
+"
+1760296326214,"INFO	2025-10-12T19:12:06,214	133484	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296326214,"INFO	2025-10-12T19:12:06,214	133484	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 10, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296326215,"INFO	2025-10-12T19:12:06,214	133484	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 10; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_10_a_spark-application-1760296205636_p_1
+"
+1760296326215,"INFO	2025-10-12T19:12:06,215	133485	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296326260,"INFO	2025-10-12T19:12:06,260	133530	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296326260,"INFO	2025-10-12T19:12:06,260	133530	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 174f0e3c-3e7f-4f1f-9396-31af61a17ae3)
+"
+1760296326260,"INFO	2025-10-12T19:12:06,260	133530	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 10 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296330322,"INFO	2025-10-12T19:12:10,320	137590	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 16.0 in stage 0.0 (TID 16) (172.34.28.133, executor 1, partition 16, PROCESS_LOCAL, 16810 bytes) 
+INFO	2025-10-12T19:12:10,321	137591	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-2]	60	Finished task 14.0 in stage 0.0 (TID 14) in 12376 ms on 172.34.28.133 (executor 1) (15/32)
+"
+1760296330789,"INFO	2025-10-12T19:12:10,789	138059	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 17.0 in stage 0.0 (TID 17) (172.34.28.133, executor 1, partition 17, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296330791,"INFO	2025-10-12T19:12:10,790	138060	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-3]	60	Finished task 15.0 in stage 0.0 (TID 15) in 12447 ms on 172.34.28.133 (executor 1) (16/32)
+"
+1760296330843,"INFO	2025-10-12T19:12:10,843	138113	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 4
+"
+1760296330843,"INFO	2025-10-12T19:12:10,843	138113	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 4
+"
+1760296333502,"INFO	2025-10-12T19:12:13,501	140771	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296333502,"INFO	2025-10-12T19:12:13,502	140772	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 11, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296333502,"INFO	2025-10-12T19:12:13,502	140772	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 11; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_11_a_spark-application-1760296205636_p_1
+"
+1760296333503,"INFO	2025-10-12T19:12:13,503	140773	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296333534,"INFO	2025-10-12T19:12:13,534	140804	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296333534,"INFO	2025-10-12T19:12:13,534	140804	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 90863ae8-0a1e-483a-972e-17bdc6a2b9df)
+"
+1760296333534,"INFO	2025-10-12T19:12:13,534	140804	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 11 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296339861,"INFO	2025-10-12T19:12:19,860	147130	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 18.0 in stage 0.0 (TID 18) (172.34.28.133, executor 1, partition 18, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296339864,"INFO	2025-10-12T19:12:19,862	147132	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 16.0 in stage 0.0 (TID 16) in 9543 ms on 172.34.28.133 (executor 1) (17/32)
+"
+1760296340315,"INFO	2025-10-12T19:12:20,314	147584	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296340315,"INFO	2025-10-12T19:12:20,315	147585	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 12, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296340315,"INFO	2025-10-12T19:12:20,315	147585	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 12; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_12_a_spark-application-1760296205636_p_1
+"
+1760296340316,"INFO	2025-10-12T19:12:20,316	147586	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296340359,"INFO	2025-10-12T19:12:20,358	147628	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296340359,"INFO	2025-10-12T19:12:20,358	147628	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 4ecc9b3d-0c49-4bdd-bb66-4a8c1dfaf258)
+"
+1760296340359,"INFO	2025-10-12T19:12:20,359	147629	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 12 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296340970,"INFO	2025-10-12T19:12:20,969	148239	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 19.0 in stage 0.0 (TID 19) (172.34.28.133, executor 1, partition 19, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296340970,"INFO	2025-10-12T19:12:20,970	148240	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 17.0 in stage 0.0 (TID 17) in 10182 ms on 172.34.28.133 (executor 1) (18/32)
+"
+1760296347873,"INFO	2025-10-12T19:12:27,873	155143	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296347874,"INFO	2025-10-12T19:12:27,873	155143	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 13, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296347874,"INFO	2025-10-12T19:12:27,874	155144	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 13; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_13_a_spark-application-1760296205636_p_1
+"
+1760296347874,"INFO	2025-10-12T19:12:27,874	155144	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296347920,"INFO	2025-10-12T19:12:27,919	155189	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296347920,"INFO	2025-10-12T19:12:27,920	155190	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 8bb639df-5144-4227-ae60-fbc088510c18)
+"
+1760296347920,"INFO	2025-10-12T19:12:27,920	155190	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 13 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296349169,"INFO	2025-10-12T19:12:29,168	156438	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 20.0 in stage 0.0 (TID 20) (172.34.28.133, executor 1, partition 20, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296349169,"INFO	2025-10-12T19:12:29,169	156439	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-2]	60	Finished task 18.0 in stage 0.0 (TID 18) in 9309 ms on 172.34.28.133 (executor 1) (19/32)
+"
+1760296350308,"INFO	2025-10-12T19:12:30,308	157578	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 21.0 in stage 0.0 (TID 21) (172.34.28.133, executor 1, partition 21, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296350309,"INFO	2025-10-12T19:12:30,309	157579	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-3]	60	Finished task 19.0 in stage 0.0 (TID 19) in 9341 ms on 172.34.28.133 (executor 1) (20/32)
+"
+1760296350370,"INFO	2025-10-12T19:12:30,369	157639	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 3
+"
+1760296350370,"INFO	2025-10-12T19:12:30,370	157640	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 3
+"
+1760296358622,"INFO	2025-10-12T19:12:38,621	165891	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 22.0 in stage 0.0 (TID 22) (172.34.28.133, executor 1, partition 22, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296358622,"INFO	2025-10-12T19:12:38,622	165892	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 20.0 in stage 0.0 (TID 20) in 9454 ms on 172.34.28.133 (executor 1) (21/32)
+"
+1760296359933,"INFO	2025-10-12T19:12:39,933	167203	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296359934,"INFO	2025-10-12T19:12:39,934	167204	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 14, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296359934,"INFO	2025-10-12T19:12:39,934	167204	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 14; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_14_a_spark-application-1760296205636_p_1
+"
+1760296359934,"INFO	2025-10-12T19:12:39,934	167204	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296359976,"INFO	2025-10-12T19:12:39,976	167246	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296359976,"INFO	2025-10-12T19:12:39,976	167246	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: e09658ae-c02a-42f8-ad2f-e64c2c840ea5)
+"
+1760296359976,"INFO	2025-10-12T19:12:39,976	167246	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 14 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296360222,"INFO	2025-10-12T19:12:40,222	167492	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 23.0 in stage 0.0 (TID 23) (172.34.28.133, executor 1, partition 23, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296360223,"INFO	2025-10-12T19:12:40,223	167493	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 21.0 in stage 0.0 (TID 21) in 9916 ms on 172.34.28.133 (executor 1) (22/32)
+"
+1760296368008,"INFO	2025-10-12T19:12:48,007	175277	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 24.0 in stage 0.0 (TID 24) (172.34.28.133, executor 1, partition 24, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296368010,"INFO	2025-10-12T19:12:48,008	175278	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-2]	60	Finished task 22.0 in stage 0.0 (TID 22) in 9387 ms on 172.34.28.133 (executor 1) (23/32)
+"
+1760296369451,"INFO	2025-10-12T19:12:49,450	176720	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 25.0 in stage 0.0 (TID 25) (172.34.28.133, executor 1, partition 25, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296369452,"INFO	2025-10-12T19:12:49,451	176721	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-3]	60	Finished task 23.0 in stage 0.0 (TID 23) in 9230 ms on 172.34.28.133 (executor 1) (24/32)
+"
+1760296369497,"INFO	2025-10-12T19:12:49,497	176767	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 2
+"
+1760296369497,"INFO	2025-10-12T19:12:49,497	176767	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 2
+"
+1760296371405,"INFO	2025-10-12T19:12:51,404	178674	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296371405,"INFO	2025-10-12T19:12:51,405	178675	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 15, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296371405,"INFO	2025-10-12T19:12:51,405	178675	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 15; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_15_a_spark-application-1760296205636_p_1
+"
+1760296371405,"INFO	2025-10-12T19:12:51,405	178675	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296371456,"INFO	2025-10-12T19:12:51,455	178725	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296371456,"INFO	2025-10-12T19:12:51,455	178725	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: db0bf976-c561-44b6-893f-dbf5dbc744b3)
+"
+1760296371456,"INFO	2025-10-12T19:12:51,456	178726	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 15 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296377617,"INFO	2025-10-12T19:12:57,616	184886	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 26.0 in stage 0.0 (TID 26) (172.34.28.133, executor 1, partition 26, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296377617,"INFO	2025-10-12T19:12:57,617	184887	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 24.0 in stage 0.0 (TID 24) in 9610 ms on 172.34.28.133 (executor 1) (25/32)
+"
+1760296379655,"INFO	2025-10-12T19:12:59,654	186924	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 27.0 in stage 0.0 (TID 27) (172.34.28.133, executor 1, partition 27, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296379656,"INFO	2025-10-12T19:12:59,655	186925	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 25.0 in stage 0.0 (TID 25) in 10206 ms on 172.34.28.133 (executor 1) (26/32)
+"
+1760296385395,"INFO	2025-10-12T19:13:05,394	192664	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	60	Creating executors task for application spark-application-1760296205636 with resource profile 0
+"
+1760296385395,"INFO	2025-10-12T19:13:05,395	192665	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	Creating new task with arguments List(--driver-url, spark://CoarseGrainedScheduler@172.34.33.234:34335, --executor-id, 16, --app-id, spark-application-1760296205636, --cores, 2, --resourceProfileId, 0)
+"
+1760296385395,"INFO	2025-10-12T19:13:05,395	192665	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	creating executor task for executor 16; clientToken gr_f61d0483-d788-4d8b-8021-5bdbf69866e8_e_16_a_spark-application-1760296205636_p_1
+"
+1760296385395,"INFO	2025-10-12T19:13:05,395	192665	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	60	Sending request to JES
+"
+1760296385438,"INFO	2025-10-12T19:13:05,437	192707	org.apache.spark.deploy.glue.client.GlueTaskGroupRMClient	[executorAllocator]	81	Exception thrown while creating child task 
+"
+1760296385438,"INFO	2025-10-12T19:13:05,437	192707	org.apache.spark.scheduler.cluster.glue.util.ExceptionWrapper	[executorAllocator]	60	Exception thrown: software.amazon.awssdk.services.gluejobexecutor.model.ResourceNumberLimitExceededException: Number of ChildTask has reached the maximum limit of 2.0 for groupId f61d0483-d788-4d8b-8021-5bdbf69866e8 (Service: GlueJobExecutor, Status Code: 400, Request ID: 1df9283a-2169-4506-9bf9-8aabf41a325e)
+"
+1760296385438,"INFO	2025-10-12T19:13:05,438	192708	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorAllocator]	60	executor task creation failed for executor 16 in resource profile 0, restarting within 15 secs. restart reason: Executor task resource limit has been temporarily hit..
+"
+1760296385695,"INFO	2025-10-12T19:13:05,695	192965	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorStatus-poller]	60	polling for JES executor task status
+"
+1760296385695,"INFO	2025-10-12T19:13:05,695	192965	org.apache.spark.scheduler.cluster.glue.allocator.ExecutorTaskAllocator	[executorStatus-poller]	60	polling for 1 executor task status
+"
+1760296386879,"INFO	2025-10-12T19:13:06,879	194149	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 28.0 in stage 0.0 (TID 28) (172.34.28.133, executor 1, partition 28, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296386880,"INFO	2025-10-12T19:13:06,879	194149	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-2]	60	Finished task 26.0 in stage 0.0 (TID 26) in 9264 ms on 172.34.28.133 (executor 1) (27/32)
+"
+1760296388730,"INFO	2025-10-12T19:13:08,730	196000	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 29.0 in stage 0.0 (TID 29) (172.34.28.133, executor 1, partition 29, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296388731,"INFO	2025-10-12T19:13:08,730	196000	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-3]	60	Finished task 27.0 in stage 0.0 (TID 27) in 9076 ms on 172.34.28.133 (executor 1) (28/32)
+"
+1760296388824,"INFO	2025-10-12T19:13:08,823	196093	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Set total expected executors: rpId: 0, numExecs: 1
+"
+1760296388824,"INFO	2025-10-12T19:13:08,823	196093	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[spark-dynamic-executor-allocation]	60	Requested total executors are 1
+"
+1760296396561,"INFO	2025-10-12T19:13:16,561	203831	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 30.0 in stage 0.0 (TID 30) (172.34.28.133, executor 1, partition 30, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296396562,"INFO	2025-10-12T19:13:16,562	203832	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-0]	60	Finished task 28.0 in stage 0.0 (TID 28) in 9683 ms on 172.34.28.133 (executor 1) (29/32)
+"
+1760296398075,"INFO	2025-10-12T19:13:18,075	205345	org.apache.spark.scheduler.TaskSetManager	[dispatcher-CoarseGrainedScheduler]	60	Starting task 31.0 in stage 0.0 (TID 31) (172.34.28.133, executor 1, partition 31, PROCESS_LOCAL, 16810 bytes) 
+"
+1760296398076,"INFO	2025-10-12T19:13:18,076	205346	org.apache.spark.scheduler.TaskSetManager	[task-result-getter-1]	60	Finished task 29.0 in stage 0.0 (TID 29) in 9347 ms on 172.34.28.133 (executor 1) (30/32)
+"
+1760296399878,"ERROR	2025-10-12T19:13:19,878	207148	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[executorAllocator]	76	threshold for consecutive executor task creation reached
+"
+1760296399881,"INFO	2025-10-12T19:13:19,881	207151	org.apache.spark.SparkContext	[shutdown-hook-0]	60	Invoking stop() from shutdown hook
+"
+1760296399881,"INFO	2025-10-12T19:13:19,881	207151	org.apache.spark.SparkContext	[shutdown-hook-0]	60	SparkContext is stopping with exitCode 0.
+"
+1760296399889,"INFO	2025-10-12T19:13:19,889	207159	com.amazonaws.services.glueexceptionanalysis.EventLogFileWriter	[spark-listener-group-shared]	70	Logs, events processed and insights are written to file /tmp/glue-exception-analysis-logs/spark-application-1760296205636
+"
+1760296399890,"INFO	2025-10-12T19:13:19,890	207160	org.apache.spark.scheduler.DAGScheduler	[shutdown-hook-0]	60	ShuffleMapStage 0 (save at NativeMethodAccessorImpl.java:0) failed in 180.542 s due to Stage cancelled because SparkContext was shut down
+"
+1760296399894,"INFO	2025-10-12T19:13:19,894	207164	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[shutdown-hook-0]	60	Stopping JES Scheduler Backend.
+"
+1760296399899,"INFO	2025-10-12T19:13:19,899	207169	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend	[shutdown-hook-0]	60	Shutting down all executors
+"
+1760296399899,"INFO	2025-10-12T19:13:19,899	207169	org.apache.spark.scheduler.cluster.glue.JESSchedulerBackend$JESAsSchedulerBackendEndpoint	[dispatcher-CoarseGrainedScheduler]	60	Asking each executor to shut down
+"
+1760296399901,"ERROR	2025-10-12T19:13:19,901	207171	com.amazonaws.services.glueexceptionanalysis.GlueExceptionAnalysisListener	[spark-listener-group-shared]	9	[Glue Exception Analysis] {""Event"":""GlueExceptionAnalysisStageFailed"",""Timestamp"":1760296399888,""Failure Reason"":""Stage cancelled because SparkContext was shut down"",""Stack Trace"":[],""Stage ID"":0,""Stage Attempt ID"":0,""Number of Tasks"":32}
+"
+1760296399908,"ERROR	2025-10-12T19:13:19,907	207177	com.amazonaws.services.glueexceptionanalysis.GlueExceptionAnalysisListener	[spark-listener-group-shared]	9	[Glue Exception Analysis] {""Event"":""GlueExceptionAnalysisJobFailed"",""Timestamp"":1760296399904,""Failure Reason"":""org.apache.spark.SparkException: Job 0 cancelled because SparkContext was shut down"",""Stack Trace"":[{""Declaring Class"":""org.apache.spark.SparkException: Job 0 cancelled because SparkContext was shut down)"",""Method Name"":""TopLevelFailedReason"",""File Name"":""TopLevelFailedReason"",""Line Number"":-1}],""Job Id"":0,""Job Result"":""JobFailed"",""Failed Stage Id"":-1}
+"
+1760296399914,"INFO	2025-10-12T19:13:19,913	207183	org.apache.spark.sql.execution.SQLExecution	[Thread-7]	60	Skipped SparkListenerSQLExecutionObfuscatedInfo event due to NON_EMPTY_ERROR.
+"
+1760296399915,"INFO	2025-10-12T19:13:19,915	207185	org.apache.spark.MapOutputTrackerMasterEndpoint	[dispatcher-event-loop-0]	60	MapOutputTrackerMasterEndpoint stopped!
+"
+1760296399928,"INFO	2025-10-12T19:13:19,928	207198	org.apache.spark.storage.memory.MemoryStore	[shutdown-hook-0]	60	MemoryStore cleared
+"
+1760296399929,"INFO	2025-10-12T19:13:19,928	207198	org.apache.spark.storage.BlockManager	[shutdown-hook-0]	60	BlockManager stopped
+"
+1760296399934,"INFO	2025-10-12T19:13:19,934	207204	org.apache.spark.storage.BlockManagerMaster	[shutdown-hook-0]	60	BlockManagerMaster stopped
+"
+1760296399936,"INFO	2025-10-12T19:13:19,936	207206	org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint	[dispatcher-event-loop-0]	60	OutputCommitCoordinator stopped!
+"
+1760296400026,"INFO	2025-10-12T19:13:20,026	207296	org.apache.spark.SparkContext	[shutdown-hook-0]	60	Successfully stopped SparkContext
+"
+1760296400028,"INFO	2025-10-12T19:13:20,028	207298	org.apache.spark.util.ShutdownHookManager	[shutdown-hook-0]	60	Shutdown hook called
+"
+1760296400029,"INFO	2025-10-12T19:13:20,029	207299	org.apache.spark.util.ShutdownHookManager	[shutdown-hook-0]	60	Deleting directory /tmp/spark-785c78cd-2c2c-4662-9238-bb830d681dae
+"
+1760296400036,"INFO	2025-10-12T19:13:20,035	207305	org.apache.spark.util.ShutdownHookManager	[shutdown-hook-0]	60	Deleting directory /tmp/spark-785c78cd-2c2c-4662-9238-bb830d681dae/pyspark-8a5716a0-a41f-42d3-8568-711fe78d8bb2
+"
+1760296400042,"INFO	2025-10-12T19:13:20,042	207312	org.apache.spark.util.ShutdownHookManager	[shutdown-hook-0]	60	Deleting directory /tmp/spark-d829ff7e-d6c3-438d-8ce1-934d61b2aa96
+"
